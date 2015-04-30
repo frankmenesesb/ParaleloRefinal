@@ -1,0 +1,269 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22-feb-2015, 15:50:55
+    Author     : Frank
+*/
+
+body{
+    background: #f9f9f9;
+}
+
+
+div.before-head {
+    height: 20px;
+    background: #222;
+    color: yellowgreen;
+    width: 100%;
+    font-size: 18px;
+}
+
+div.head {
+    height: 50px;
+    background: white;
+    color: yellowgreen;
+    width: 100%;
+    font-size: 18px;
+}
+
+div.head-fixed {
+    position: fixed;
+    height: 50px;
+    background: white;
+    color: yellowgreen;
+    width: 100%;
+    font-size: 18px;
+    z-index: 2;
+}
+
+
+div.head-left{
+    width: 25%;
+    float: left;
+    background-image: url(../images/refinal-app-1.png);
+    background-size: 28px 25px;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: 10px;
+    z-index: 3;
+}
+
+div.head-center{
+    
+    width: 40%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    padding-top:10px;
+   
+}
+
+div.head-right{
+    width: 35%;
+    float: right;
+    height: 100%;
+    text-align: right;
+    
+    
+}
+
+
+div.movil{
+    width: 280px;
+    background: white;
+    z-index: 1;
+}
+
+div.body{
+    
+    background: #f9f9f9;
+}
+
+div.margen{
+    width: 290px;
+    background: #f9f9f9;
+}
+
+div.footer {
+    position: fixed;
+    height: 60px;
+   // background: transparent;
+    background: white;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+div.footer-transparent {
+    position: fixed;
+    height: 60px;
+    background: transparent;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+div.pendietes{
+    
+    float: top;
+   
+}
+
+div.pendientes-a{
+   width: 40%;
+   float: right;
+   text-align: center;
+}
+
+div.pendientes-b{
+   width: 40%; 
+   float: left;
+   text-align: center;
+}
+div.pendientes-c{
+   width: 100%; 
+   float: end;
+   text-align: center;
+}
+
+div.input-login{
+    width: 100%;
+   
+}
+
+div.articulos{
+    font-size: 12px;
+}
+div.articulos-resumen{
+    font-size: 12px;
+}
+
+.filterable {
+    margin-top: 15px;
+}
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+.filterable .filters input[disabled] {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+}
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]::-moz-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]:-ms-input-placeholder {
+    color: #333;
+}
+
+
+
+input.text-input{
+    color: #422668;
+    font-size: large;
+    height: 40px;
+    border-color: white;
+    
+    
+}
+
+
+a.boton-login{
+    
+    color: white;
+    width: 100%;
+    
+}
+
+.mi-input::-webkit-input-placeholder { color: #66afe9;}
+.mi-input:-moz-placeholder { color: #66afe9; }
+.mi-input::-moz-placeholder { color: #66afe9; }
+.mi-input:-ms-input-placeholder { color: #66afe9; }
+
+
+
+a.boton-factura{
+    background: transparent;
+   
+    background-image: url(../images/btn-new-0.png);
+    background-size: 60px 60px;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    
+    
+}
+
+a.boton-factura:hover{
+    
+    background: transparent;
+    background-image: url(../images/btn-new-1.png);
+    background-size: 60px 60px;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    
+}
+
+
+
+a.boton-guardar{
+    background: transparent;
+   
+    background-image: url(../images/btn-enviar-0.png);
+    background-size: 130px 50px;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 50px;
+    background-position: center;
+    
+    
+}
+
+a.boton-guardar:hover{
+    
+    background: transparent;
+    background-image: url(../images/btn-enviar-1.png);
+    background-size: 130px 50px;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 50px;
+    background-position: center;
+    
+}
+
+a.boton-atras{
+    background: transparent;
+   
+    background-image: url(../images/btn-atras-0.png);
+    background-size: 130px 50px;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 50px;
+    background-position: center;
+    
+    
+}
+
+a.boton-atras:hover{
+    
+    background: transparent;
+    background-image: url(../images/btn-atras-1.png);
+    background-size: 130px 50px;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 50px;
+    background-position: center;
+    
+}
