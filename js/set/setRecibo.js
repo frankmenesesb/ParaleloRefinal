@@ -60,7 +60,7 @@ $(function () {
 
                         
                         alert(jsonResp.MESSAGE);   
-                        location.href = '../frm/frmInicio.html?var='+strLog+'$';    
+                        //location.href = '../frm/frmInicio.html?var='+strLog+'$';    
                         for (x = 1; x < 17; x++) {
 
                             if ($("#" + x).val() !== null) {
@@ -70,6 +70,8 @@ $(function () {
                                 
                             }
                         }
+                        
+                        //location.href = '../frm/frmInicio.html?var='+strLog+'$';    
 
                         if(y===17){
                          
