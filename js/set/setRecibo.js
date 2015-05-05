@@ -86,6 +86,15 @@ $(function () {
                         
 
                         }
+                        
+                        var r = confirm("Desea imprimir el recibo?");
+                    if (r === true) {
+                        uReciboEnc();
+                    } else {
+                        location.href = '../frm/frmInicio.html?var='+strLog+'$';   
+                    }
+                        
+                        
 
                         if (jsonResp.MESSAGE === "") {
 

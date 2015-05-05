@@ -25,10 +25,13 @@ and open the template in the editor.
         <script src="../js/util/main.js"></script>
         <script src="../js/set/setRecibo.js"></script>
         <script src="../js/set/setReciboDetallado.js"></script>
+        <script src="../js/get/getURecibo.js"></script>
         <script>
            function ir(a){
                $.scrollTo('#'+a,800);
            }
+           
+           
         </script>
         
     </head>
@@ -83,7 +86,7 @@ and open the template in the editor.
 
                             </table>
                             </div>
-                            <input type="hidden" class="form-control" name="recibirVariable" id="recibirVariable">
+                            <input type="text" class="form-control" name="recibirVariable" id="recibirVariable">
                         </div>
                     </div>
                     
@@ -110,6 +113,7 @@ and open the template in the editor.
                         
                     </a>
                 </li>
+                
             </ul>
 
         </div>
