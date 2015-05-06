@@ -163,9 +163,10 @@ function uReciboDet(strRec) {
 
                         } else {
 
-
-                            des.push(descripcion);
-                            can.push(cantidad);
+                            if (parseInt(cantidad) === 0) {
+                                des.push(descripcion);
+                                can.push(cantidad);
+                            }
 
 
 
@@ -177,10 +178,10 @@ function uReciboDet(strRec) {
                         }
                     }
 
-                    
-                        formato(fecha, nom_prov, id_proveedor);
-                    
-                    
+
+                    formato(fecha, nom_prov, id_proveedor);
+
+
                     //$("#recibo").html(html);
                     //$("#txtHint").html(encabezado+html+final);
 
@@ -222,10 +223,10 @@ function formato(fechaP, proveedorP, nitP) {
     var fin_mensaje = "";
     var proveedor = proveedorP;
     var cantidad_proveedor = "";
-    var nit = nitP;
+    var nit = "Nit: "+nitP;
     var cantidad_nit = "";
 
-    fecha = fechaP;
+    fecha = "Fecha: "+fechaP;
     cantidad_emp = empresa.length;
     cantidad_fecha = fecha.length;
     cantidad_nit = nit.length;
@@ -287,20 +288,20 @@ function formato(fechaP, proveedorP, nitP) {
 
     fin_mensaje = encabezado + fin_mensaje;
     imprimir(fin_mensaje);
-     
+
     alert(":" + fin_mensaje);
 
 }
 
 
 
-function imprimir(str){
+function imprimir(str) {
 
-  
-            cordova.plugins.zbtprinter.print(str,
-                    function (success) {
-                        alert("Print ok");
-                    }, function (fail) {
-                alert(fail);
-            });
-            }
+
+    cordova.plugins.zbtprinter.print(str,
+            function (success) {
+                location.href = '../frm/frmInicio.html?var='+strLog+'$';  
+            }, function (fail) {
+        alert(fail);
+    });
+}
