@@ -286,8 +286,21 @@ function formato(fechaP, proveedorP, nitP) {
     }
 
     fin_mensaje = encabezado + fin_mensaje;
-    //imprimir(fin_mensaje);
+    imprimir(fin_mensaje);
      
     alert(":" + fin_mensaje);
 
 }
+
+
+
+function imprimir(str){
+
+  
+            cordova.plugins.zbtprinter.print(str,
+                    function (success) {
+                        alert("Print ok");
+                    }, function (fail) {
+                alert(fail);
+            });
+            }
