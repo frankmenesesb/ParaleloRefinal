@@ -18,6 +18,10 @@ var fecha;
 var id_proveedor;
 var nom_prov;
 var strLog;
+
+
+
+
 function uReciboEnc() {
 
 
@@ -85,7 +89,7 @@ function uReciboEnc() {
 
                         }
                     }
-                    uReciboDet(id_rec_enc);
+                    uReciboDet(id_rec_enc,strLog);
                     /*for(var a=0; a < dato.length; a++){
                      alert(dato[a]);
                      }*/
@@ -109,7 +113,99 @@ function uReciboEnc() {
 
 }
 
-function uReciboDet(strRec) {
+
+function uReciboEncImp(csc) {
+
+   
+    var html;
+
+    strLog = $("#recibirVariable").val();
+
+    var dataString = {'csc': csc};
+
+
+    $.ajax({
+        type: 'POST',
+        data: dataString,
+        dataType: 'json',
+        url: "http://refinal.frienderco.com/php/get/getReciboEncPorCsc.php",
+        //url: "../php/get/getArticulos.php",
+        success: function (jsonResp) {
+
+            if (jsonResp.RESPONSE) {
+
+
+                if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
+
+                    alert('No hay recibos para este usuario!!');
+                }
+                if (jsonResp.MESSAGE === "") {
+
+
+
+                    for (var i = 0; i < jsonResp.DATA.length; i++) {
+
+
+
+
+
+                        id_rec_enc = jsonResp.DATA[i]["id_rec_enc"];
+                        observacion = jsonResp.DATA[i]["observacion"];
+                        id_usuario = jsonResp.DATA[i]["id_usuario"];
+                        nombre_usuario = jsonResp.DATA[i]["nombre_usuario"];
+                        estado = jsonResp.DATA[i]["estado"];
+                        fecha = jsonResp.DATA[i]["fecha"];
+                        id_proveedor = jsonResp.DATA[i]["id_proveedor"];
+                        nom_prov = jsonResp.DATA[i]["nom_prov"];
+
+                        //dato.push(id_rec_enc);
+
+
+
+                        var log = "";
+                        if ((id_rec_enc === null || id_rec_enc === "") || (id_usuario === null || id_usuario === "")) {
+
+                            alert("Error al traer recibo");
+
+                        } else {
+
+
+
+
+                            //articulos.add(id);
+
+
+
+
+
+
+                        }
+                    }
+                    uReciboDet(id_rec_enc,strLog);
+                    /*for(var a=0; a < dato.length; a++){
+                     alert(dato[a]);
+                     }*/
+                    //$("#recibo").html(html);
+                    //$("#txtHint").html(encabezado+html+final);
+
+                } else if (jsonResp.MESSAGE === "EMPTY") {
+                    alert("Error: Recibo no existe!!");
+                }
+            } else {
+                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+            }
+
+
+        },
+        error: function (jsonResp) {
+            alert("Ocurrio Un error");
+        }
+    });
+
+
+}
+
+function uReciboDet(strRec,usu) {
 
 
     //variables de entrada
@@ -163,7 +259,7 @@ function uReciboDet(strRec) {
 
                         } else {
 
-                            if (parseInt(cantidad) === 0) {
+                            if (parseInt(cantidad) !== 0) {
                                 des.push(descripcion);
                                 can.push(cantidad);
                             }
@@ -179,7 +275,7 @@ function uReciboDet(strRec) {
                     }
 
 
-                    formato(fecha, nom_prov, id_proveedor);
+                    formato(fecha, nom_prov, id_proveedor,usu);
 
 
                     //$("#recibo").html(html);
@@ -203,7 +299,7 @@ function uReciboDet(strRec) {
 }
 
 
-function formato(fechaP, proveedorP, nitP) {
+function formato(fechaP, proveedorP, nitP, usu) {
 
     var fecha = "";
     var cantidad_fecha = "";
@@ -287,7 +383,7 @@ function formato(fechaP, proveedorP, nitP) {
     }
 
     fin_mensaje = encabezado + fin_mensaje;
-    imprimir(fin_mensaje);
+    //imprimir(fin_mensaje,usu);
 
     alert(":" + fin_mensaje);
 
@@ -295,12 +391,12 @@ function formato(fechaP, proveedorP, nitP) {
 
 
 
-function imprimir(str) {
+function imprimir(str,usu) {
 
 
     cordova.plugins.zbtprinter.print(str,
             function (success) {
-                location.href = '../frm/frmInicio.html?var='+strLog+'$';  
+                location.href = '../frm/frmInicio.html?var='+usu+'$';  
             }, function (fail) {
         alert(fail);
     });

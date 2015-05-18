@@ -19,22 +19,25 @@ and open the template in the editor.
         <script src="js/util/jquery.scrollTo.js"></script>
         <script src="js/util/bootstrap.min.js"></script>
         <script src="js/get/getUserLogin.js"></script>
-		
-        <script>
         <link rel="shortcut icon" href="images/LOG.PNG">
         <script>
-           function ir(a){
-               $.scrollTo('#'+a,100);
-           }
+            function ir(a) {
+                $.scrollTo('#' + a, 100);
+            }
+
+
+            function updateBar() {
+
+                
+                setTimeout("updateClock()", 100);
+            }
         </script>
     </head>
     <body>
     <center>
         <div class="before-head">
         </div>
-        <div class="head">
-            <h4>Inicio de sesión</h4>
-        </div>
+
         <div class="body">
             <div class="margen">
                 <br>

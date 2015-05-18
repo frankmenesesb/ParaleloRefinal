@@ -9,9 +9,15 @@ and open the template in the editor.
 */
 
 body{
-    background: #f9f9f9;
+    background: #F3F3F3;
 }
 
+div.super-head{
+    position: fixed; 
+    height: 80px; 
+    z-index: 4; 
+    width: 100%;
+}
 
 div.before-head {
     height: 20px;
@@ -27,6 +33,7 @@ div.head {
     color: yellowgreen;
     width: 100%;
     font-size: 18px;
+    border-bottom: 2px solid #9d9d9d;
 }
 
 div.head-fixed {
@@ -41,10 +48,10 @@ div.head-fixed {
 
 
 div.head-left{
-    width: 25%;
+    width: 15%;
     float: left;
     background-image: url(../images/refinal-app-1.png);
-    background-size: 28px 25px;
+    background-size: 28px 30px;
     background-repeat: no-repeat;
     height: 100%;
     background-position: 10px;
@@ -53,43 +60,61 @@ div.head-left{
 
 div.head-center{
     
-    width: 40%;
+    width: 60%;
     height: 100%;
     float: left;
-    text-align: center;
+    text-align: left;
     padding-top:10px;
    
 }
 
 div.head-right{
-    width: 35%;
+    width: 25%;
     float: right;
     height: 100%;
     text-align: right;
+    padding-top:5px;
     
     
 }
 
 
 div.movil{
-    width: 280px;
+    width: 290px;
     background: white;
+    z-index: 1;
+}
+
+div.movil-recibo{
+    width: 290px;
+    background: transparent;
     z-index: 1;
 }
 
 div.body{
     
-    background: #f9f9f9;
+    background: #F3F3F3;
+   
+    
 }
 
 div.margen{
     width: 290px;
-    background: #f9f9f9;
+    background: #F3F3F3;
+    border-bottom: 1px solid transparent;
+    
+}
+
+div.margen-recibo{
+    width: 290px;
+    background-image: url(../images/bg-recibo.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 div.footer {
     position: fixed;
-    height: 60px;
+    height: 70px;
    // background: transparent;
     background: white;
     bottom: 0;
@@ -99,9 +124,20 @@ div.footer {
 
 div.footer-transparent {
     position: fixed;
-    height: 60px;
+    height: 70px;
     background: transparent;
+    border: transparent;
     bottom: 0;
+    width: 100%;
+    
+}
+
+li.transparent {
+    
+    height: 100%;
+    background: transparent;
+    border: transparent;
+    
     width: 100%;
     
 }
@@ -131,7 +167,8 @@ div.pendientes-c{
 
 div.input-login{
     width: 100%;
-   
+    border-bottom: 2px solid #66afe9;
+    border-top: 1px solid white;
 }
 
 div.articulos{
@@ -177,6 +214,9 @@ input.text-input{
 }
 
 
+
+
+
 a.boton-login{
     
     color: white;
@@ -195,10 +235,10 @@ a.boton-factura{
     background: transparent;
    
     background-image: url(../images/btn-new-0.png);
-    background-size: 60px 60px;
+    background-size: 70px 70px;
     background-repeat: no-repeat;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background-position: center;
     
     
@@ -225,7 +265,7 @@ a.boton-guardar{
     background-size: 130px 50px;
     background-repeat: no-repeat;
     width: 130px;
-    height: 50px;
+    height: 60px;
     background-position: center;
     
     
@@ -238,7 +278,7 @@ a.boton-guardar:hover{
     background-size: 130px 50px;
     background-repeat: no-repeat;
     width: 130px;
-    height: 50px;
+    height: 60px;
     background-position: center;
     
 }
@@ -250,7 +290,7 @@ a.boton-atras{
     background-size: 130px 50px;
     background-repeat: no-repeat;
     width: 130px;
-    height: 50px;
+    height: 60px;
     background-position: center;
     
     
@@ -263,7 +303,58 @@ a.boton-atras:hover{
     background-size: 130px 50px;
     background-repeat: no-repeat;
     width: 130px;
-    height: 50px;
+    height: 60px;
+    background-position: center;
+    
+}
+
+
+a.boton-imprimir-rec{
+    background: transparent;
+   
+    background-image: url(../images/btn-imprim-0.png);
+    background-size: 130px 50px;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 60px;
+    background-position: center;
+    
+    
+}
+
+a.boton-imprimir-rec:hover{
+    
+    background: transparent;
+    background-image: url(../images/btn-imprim-1.png);
+    background-size: 130px 50px;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 60px;
+    background-position: center;
+    
+}
+
+a.boton-editar-rec{
+    background: transparent;
+   
+    background-image: url(../images/btn-edit-0.png);
+    background-size: 130px 50px;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 60px;
+    background-position: center;
+    
+    
+}
+
+a.boton-editar-rec:hover{
+    
+    background: transparent;
+    background-image: url(../images/btn-edit-1.png);
+    background-size: 130px 50px;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 60px;
     background-position: center;
     
 }

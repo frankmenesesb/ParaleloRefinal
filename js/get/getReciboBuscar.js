@@ -9,10 +9,10 @@
 
 
 
-$(function () {
-    $(".find_button").click(function () {
+//$(function () {
+//    $(".find_button").click(function () {
 
-
+function buscar_recibo(csc){
     //variables de entrada
     //var strIde = $("#txtIdentificacion").val();
 
@@ -21,8 +21,9 @@ $(function () {
     var id;
     var descripcion;
     var html;
-    var strRec = $("#txtRecibo").val();
+    //var strRec = $("#txtRecibo").val();
     
+    var strRec=csc;
 
     var dataString = {'recibo': strRec};
 
@@ -68,13 +69,10 @@ $(function () {
 
                             html += '<tr>';
                             html += '<td>';
-                            html += ''+descripcion+''
+                            html += ''+descripcion+'&nbsp&nbsp&nbsp&nbsp';
                             html += '</td>';
-                            html += '<td>';
-                            html += ''+cantidad;
-                            html += '</td>';
-                            html += '<td>';
-                            html += '<label>Kg.</label>';
+                            html += '<td style="text-align: right;">';
+                            html += ''+cantidad+'Kgr';
                             html += '</td>';
                             html += '</tr>';
                             //articulos.add(id);
@@ -87,6 +85,7 @@ $(function () {
                         }
                     }
                     $("#recibo").html(html);
+                    
                     //$("#txtHint").html(encabezado+html+final);
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
@@ -102,9 +101,9 @@ $(function () {
             alert("Ocurrio Un error");
         }
     });
+    }
 
-
-   });
-
-});
+//   });
+//
+//});
 

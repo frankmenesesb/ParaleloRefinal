@@ -19,62 +19,111 @@ and open the template in the editor.
         <!-- Latest compiled and minified JavaScript -->
         <script src="../js/util/jquery-2.1.3.min.js"></script>
         <script src="../js/util/bootstrap.min.js"></script>
-        <script src="../js/get/getReciboBuscar.js"></script>
         <script src="../js/util/main.js"></script>
+        <script src="../js/get/getReciboBuscar.js"></script>
+        <script src="../js/get/getURecibo.js"></script>
+        <script>
+
+            var recibiendoRecibo = location.search.slice(location.search.indexOf("$") + 1, location.search.indexOf("*"));
+
+            buscar_recibo(recibiendoRecibo);
+            updateImg1();
+            $(function () {
 
 
+                $(".imp_button").click(function () {
+                    uReciboEncImp(recibiendoRecibo);
+                });
+            });
+
+            var i = 0;
+            var img;
+            function updateImg1() {
+
+                if (i === 1 || i === "1") {
+                    img = '<img src="../images/icon 01.png" alt="" style="height: 20px;">';
+                    i = parseInt(i) + 1;
+                    
+                    
+                }
+                if (i === 0 || i === "0") {
+                    img = '<img src="../images/icon 07.png" alt="" style="height: 20px;">';
+                    i = parseInt(i) + 1;
+                    
+                }
+                
+                
+                
+                $("#alerta").html(img);
+                setTimeout("updateImg1()", 1500);
+                
+                if (i === 2 || i === "2") {
+                    
+                    i=parseInt(0);
+                    
+                }
+
+            }
+
+        </script>
     </head>
     <body>
     <center>
-        <div class="panel panel-heading head-fixed">
-            <h4>Recibo Refinal</h4>
-        </div>
-        <br>
-        <br>
-        <div class="form-group">
-            <a class="btn btn-default glyphicon glyphicon-search find_button" role="button"></a>
-        </div>
-        
-        <div class="panel panel-body body">
-            <div class="margen">
-                
-
-                <div class="movil">
-
-                    <div>
-                        <div>
-                            <!-- Table -->
-                            <div class="form-group">
-                                <input type="number" class="form-control" id="txtRecibo" placeholder="Recibo">
-                            </div>
-                            <table class="table" id="recibo">
-
-                            </table>
-                            <input type="hidden" class="form-control" name="reciboNo" id="reciboNo">
-                        </div>
-                    </div>
+        <div class="super-head">
+            <div class="before-head">
+            </div>
+            <div class="panel head">
+                <div class="head-left">
+                    <a class="btn boton-futduel"></a>
                 </div>
-                <br>
+                <div class="head-center">Impresión de Recibo</div>
+                <div class="head-right">
+                    <a class="btn glyphicon glyphicon-menu-hamburger" ></a>
+                </div>
             </div>
         </div>
         <br>
         <br>
         <br>
-        <div class="panel panel-footer footer">
-            <ul class="list-inline">
-                <li >
-                    <a  class="btn btn-primary btn-lg btn-block submit_button">
-                        <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Aceptar
-                    </a>
-                </li>
-                <li >
-                    <a  class="btn btn-primary btn-lg btn-block" href="frmMain.html">
-                        <span class="glyphicon glyphicon-hand-down" aria-hidden="true"></span> Cancelar
-                    </a>
-                </li>
-            </ul>
+        <br>
+        <br>
 
+        <div style="font-size: 10px; color: #5e5e5e;">
+            <div id="alerta"><img src="../images/icon 01.png" alt="" style="height: 20px;"></div> Revise su recibo antes de imprimir.
         </div>
+        <div class="panel body">
+            <div class="margen-recibo">
+                <div class="movil-recibo">
+                    <div style="width: 90%;">
+                        <div>
+                            <!-- Table -->
+                            <br>
+                            <br>
+                            <table  id="recibo" style="font-size: 10px; ">
+
+                            </table>
+                            <input type="hidden" class="form-control" name="reciboNo" id="reciboNo">
+                            <input type="hidden" class="form-control" name="recibirVariable" id="recibirVariable">
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="footer">
+                <ul class="list-inline">
+                    <li>
+                        <a class="btn boton-atras cancel_fact_button" ></a>
+                    </li>
+                    <li>
+                        <a class="btn boton-imprimir-rec imp_button"></a>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <br>
+            <br>
+        </div>
+
     </center>
 </body>
 </html>

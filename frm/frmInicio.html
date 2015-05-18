@@ -23,20 +23,23 @@ and open the template in the editor.
     </head>
     <body>
     <center>
-        <div class="before-head">
-        </div>
-        <div class="panel head">
-
-
-            <div class="head-left">
-                <a class="btn boton-futduel"></a>
+        <div class="super-head">
+            <div class="before-head">
             </div>
-            <div class="head-center">Mis recibos</div>
-            <div class="head-right">
-                <a class="btn glyphicon glyphicon-menu-hamburger" ></a>
+            <div class="panel head">
+
+
+                <div class="head-left">
+                    <a class="btn boton-futduel"></a>
+                </div>
+                <div class="head-center">Mis Recibos</div>
+                <div class="head-right">
+                    <a class="btn glyphicon glyphicon-menu-hamburger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"></a>
+                </div>
             </div>
         </div>
         <div class="panel body">
+            <br>
             <br>
             <div class="panel-hora">
                 <h5></h5>
@@ -45,20 +48,20 @@ and open the template in the editor.
                 <br>
                 <div class="movil">
                     <div>
-                        <ul class="list-group" style="">
+                        <ul class="list-group" >
                             <li class="list-group-item">
                                 <table>
                                     <tr>
-                                        <td style="width: 20%;"><img src="../images/icon 07.png" alt=""></td>
-                                        <td style="width: 50%;"><label>Pendientes</label></td>
-                                        <td style="width: 10%;"><img src="../images/icon 03 1.png" alt=""></td>
-                                        <td style="width: 10%;"><img src="../images/icon 04 0.png" alt=""></td>
+                                        <td style="width: 5%;"><img src="../images/icon 07.png" alt="" style="height: 20px;"></td>
+                                        <td style="width: 50%;"><h4><label style="color: #245580;">&nbsp Pendientes</label></h4></td>
+                                        <td style="width: 10%;"><img src="../images/icon 03 1.png" alt="" style="height: 20px;"></td>
+                                        <td style="width: 10%;"><img src="../images/icon 04 0.png" alt="" style="height: 20px;"></td>
                                     </tr>
                                 </table>
 
 
                             </li>
-                            <li class="list-group-item">
+                            <li class="list-group-item" style="color: slategrey;">
                                 <table class="table">
                                     <tr>
                                         <td>Por imprimir</td>
@@ -79,12 +82,12 @@ and open the template in the editor.
                 <div class="movil">
                     <div>
                         <ul class="list-group" style="">
-                            
+
                             <li class="list-group-item">
                                 <table>
                                     <tr>
-                                        <td style="width: 10%;"><img src="../images/icon 06.png" alt=""></td>
-                                        <td style="width: 80%;"><label>&#32Resumen</label></td>
+                                        <td style="width: 5%;"><img src="../images/icon 06.png" alt="" style="height: 28px;"></td>
+                                        <td style="width: 80%;"><h4><label style="color: #245580;"> &nbsp Resumen</label></h4></td>
                                     </tr>
                                 </table>
 
@@ -95,7 +98,7 @@ and open the template in the editor.
                                     <div>
                                         <div class="articulos-resumen">
                                             <!-- Table -->
-                                            <table class="table" id="recibo">
+                                            <table class="table" id="recibo" style="color: slategrey;">
 
                                             </table>
 
@@ -109,20 +112,55 @@ and open the template in the editor.
                 </div>
                 <br>
             </div>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div class="footer-transparent">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="footer-transparent">
 
-            <ul class="list-inline">
-                <li >
-                    <a  class="btn boton-factura fact_button" >
+                <ul class="list-inline">
+                    <li style="width: 30%;">
+                        &zwj;
+                    </li>
+                    <li style="width: 30%;">
+                        &zwj;
+                    </li>
+                    <li style="width: 30%;">
+                        <a  class="btn boton-factura fact_button" >
 
-                    </a>
-                </li>
-            </ul>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h5 class="modal-title" id="exampleModalLabel">Selecciones la opcion que desee</h5>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <ul class="list-group" >
+                                        
+                                        <li class="list-group-item"><a role="menuitem" tabindex="-1" href="#"><img src="../images/icon entregado.png" alt="" style="height: 40px;"></a></li>
+                                        <li class="list-group-item"><a role="menuitem" tabindex="-1" href="#"><img src="../images/icon 06.png" alt="" style="height: 40px;"></a></li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
     </center>
 </body>
 </html>

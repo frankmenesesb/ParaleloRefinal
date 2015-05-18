@@ -25,23 +25,17 @@ and open the template in the editor.
         <script src="../js/util/main.js"></script>
         <script src="../js/set/setRecibo.js"></script>
         <script src="../js/set/setReciboDetallado.js"></script>
-		<script type="text/javascript" src="../cordova.js"></script>
-        <script type="text/javascript" src="../cordova_plugins.js"></script>
 
-        <script type="text/javascript" charset="utf-8" src="../plugins/it.zenitlab.cordova.plugins.zbtprinter/www/zbtprinter.js"></script>
-        <script type="text/javascript" charset="utf-8" src="../plugins/com.randdusing.bluetoothle/www/bluetoothle.js"></script>
-        
-        <script type="text/javascript" src="../js/util/conexion.js"></script>
-		
+
         <script src="../js/get/getURecibo.js"></script>
         <script>
-           function ir(a){
-               $.scrollTo('#'+a,800);
-           }
-           
-           
+            function ir(a) {
+                $.scrollTo('#' + a, 800);
+            }
+
+
         </script>
-        
+
     </head>
     <body>
     <center>
@@ -59,72 +53,82 @@ and open the template in the editor.
         <br>
         <div class="panel body">
             <div class="margen">
-                <br>
-
                 <div class="movil">
-                    <div>
-                        <p>Datos Factura.</p>
-                    </div>
-                    <br>
-                    <div>
-                        <div>
+                    <ul class="list-group" style="">
+                        <li class="list-group-item">
+                            <div>
+                                <table>
+                                    <tr>
+                                        <td style="width: 10%;"><img src="../images/icon 08.png" alt="" style="height: 28px;"></td>
+                                        <td style="width: 80%;"><h4><label style="color: #245580;">&nbsp Datos Factura</label></h4></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
                             <div>
                                 <select id="txtProveedor" class="form-control">
                                 </select>
                             </div>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="margen">
                 <br>
-
                 <div class="movil">
-                    <div>
-                        <p>Factura.</p>
-                    </div>
-                    <br>
-                    <div>
-                        <div>
-                            
-                            <br>
-                            <!-- Table -->
-                            <div class="articulos">
-                            <table class="table" id="recibo">
-
-                            </table>
+                    <ul class="list-group" style="">
+                        <li class="list-group-item">
+                            <div>
+                                <table>
+                                    <tr>
+                                        <td style="width: 5%;"><img src="../images/icon 05.png" alt="" style="height: 28px;"></td>
+                                        <td style="width: 80%;"><h4><label style="color: #245580;">&nbsp Factura</label></h4></td>
+                                    </tr>
+                                </table>
                             </div>
-                            <input type="text" class="form-control" name="recibirVariable" id="recibirVariable">
-                        </div>
-                    </div>
-                    
-                    
-                   
-                    
+                        </li>
+                        <li class="list-group-item">
+                            <div style="color: slategrey;">
+                                <div>
+
+                                  
+                                    <div class="articulos">
+                                        <table class="table" id="recibo">
+
+                                        </table>
+                                    </div>
+                                    <input type="hidden" class="form-control" name="recibirVariable" id="recibirVariable">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <br>
             </div>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div class="footer">
-            <ul class="list-inline">
-                
-                <li >
-                    <a  class="btn boton-atras cancel_fact_button" >
-                        
-                    </a>
-                </li>
-                <li >
-                    <a    class="btn boton-guardar submit_button">
-                        
-                    </a>
-                </li>
-                
-            </ul>
+            <div class="footer">
+                <ul class="list-inline">
+                    <li >
+                        <a  class="btn boton-atras cancel_fact_button" >
 
+                        </a>
+                    </li>
+                    <li >
+                        <a    class="btn boton-guardar submit_button">
+
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
         </div>
+        
+
     </center>
 </body>
 </html>
