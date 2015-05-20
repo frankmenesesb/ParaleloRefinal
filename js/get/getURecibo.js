@@ -376,7 +376,7 @@ function formato(fechaP, proveedorP, nitP, usu) {
 
         mensaje = inicio + t1 + espacio + t2 + fin;
 
-        fin_mensaje = fin_mensaje + mensaje;
+        fin_mensaje = fin_mensaje + mensaje +espacio+espacio+espacio+espacio+espacio+espacio;
         espacio = "";
         cantidad = "";
 
