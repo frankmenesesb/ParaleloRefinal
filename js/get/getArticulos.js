@@ -6,13 +6,13 @@
 
 var articulos = new Array();
 
-$(function () {
+//$(function () {
     //$(".find_button").click(function () {
 
-
+function buscar_art(){
     //variables de entrada
-    //var strIde = $("#txtIdentificacion").val();
-
+    var strProv = $("#txtProveedor").val();
+    
     //variables locales
 
     var id;
@@ -20,14 +20,15 @@ $(function () {
     var imagen;
     var html;
 
-    //var dataString = {'identificacion': strIde};
+    var dataString = {'idProveedor': strProv};
 
 
     $.ajax({
         type: 'POST',
-        //data: dataString,
+        data: dataString,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getArticulos.php",
+        //url: "http://refinal.frienderco.com/php/get/getArticulos.php",
+        url: "http://refinal.frienderco.com/php/get/getArticulosProveedor.php",
         //url: "../php/get/getArticulos.php",
         success: function (jsonResp) {
 
@@ -69,15 +70,20 @@ $(function () {
                             html += '<label>Kg.</label>';
                             html += '</td>';
                             html += '</tr>';
+                            
+                            codArt.push(id);
+                            
                             //articulos.add(id);
 
                         }
                     }
                     $("#recibo").html(html);
                     
+                    
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: no se encontro datos de articulos!!");
+                    alert("El proveedor no tiene Articulos asignados por favor informar en oficina.");
+                    $("#recibo").html('');
                 }
             } else {
                 alert("Ocurrio Un error:" + jsonResp.MESSAGE);
@@ -93,5 +99,7 @@ $(function () {
 
     // });
 
-});
+//});
+
+}
 

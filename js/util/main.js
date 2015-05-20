@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 
-
+var codArt = [];
+var canArt = [];
 
 var titleHeader = "";
 

@@ -20,9 +20,10 @@ and open the template in the editor.
         <script src="../js/util/jquery-2.1.3.min.js"></script>
         <script src="../js/util/jquery.scrollTo.js"></script>
         <script src="../js/util/bootstrap.min.js"></script>
-        <script src="../js/get/getArticulos.js"></script>
-        <script src="../js/get/getProveedor.js"></script>
         <script src="../js/util/main.js"></script>
+        <script src="../js/get/getProveedor.js"></script>
+        <script src="../js/get/getArticulos.js"></script>
+        
         <script src="../js/set/setRecibo.js"></script>
         <script src="../js/set/setReciboDetallado.js"></script>
 
@@ -75,7 +76,7 @@ and open the template in the editor.
                         </li>
                         <li class="list-group-item">
                             <div>
-                                <select id="txtProveedor" class="form-control">
+                                <select id="txtProveedor" class="form-control" onchange="buscar_art();">
                                 </select>
                             </div>
                         </li>

@@ -8,7 +8,6 @@ $(function () {
 
 
 
-
         var strLog = $("#recibirVariable").val();
         var strProveedor = $("#txtProveedor").val();
         var y;
@@ -23,13 +22,20 @@ $(function () {
         var dataString = {'usuario': strLog, 'proveedor': strProveedor};
 
 
-        for (x = 1; x < 17; x++) {
-
-            if ($("#" + x).val() !== null) {
-
-                can_totales += Number($("#" + x).val());
+        for (x=0; x<codArt.length; x++){
+            if($("#" + codArt[x]).val()!== null){
+               
+                can_totales+=Number($("#" + codArt[x]).val());
             }
         }
+
+//        for (x = 1; x < 17; x++) {
+//
+//            if ($("#" + x).val() !== null) {
+//
+//                can_totales += Number($("#" + x).val());
+//            }
+//        }
 
 
 
@@ -40,7 +46,7 @@ $(function () {
 
         } else if (can_totales === '' || can_totales === null || can_totales === 0 || can_totales === '0') {
 
-            alert("No puedes guardar un recibo con todas las cantidades en 0 (cero).");
+            alert("No puedes guardar un recibo con todas las cantidades en 0 (cero). -->"+can_totales);
 
 
         } else
@@ -61,11 +67,11 @@ $(function () {
 
                         //alert(jsonResp.MESSAGE);
                         //location.href = '../frm/frmInicio.html?var='+strLog+'$';    
-                        for (x = 1; x < 17; x++) {
+                        for (x=0; x<codArt.length; x++){
 
-                            if ($("#" + x).val() !== null) {
+                            if($("#" + codArt[x]).val()!== null){
 
-                                detallado(x, $("#" + x).val());
+                                detallado(codArt[x], $("#" + codArt[x]).val());
                                 y = x;
 
                             }
@@ -79,7 +85,7 @@ $(function () {
 
                         //location.href = '../frm/frmInicio.html?var='+strLog+'$';    
 
-                        if (y === 17) {
+                        if (y === canArt.length) {
 
                             var html = "Se guardo Correctamente!";
 

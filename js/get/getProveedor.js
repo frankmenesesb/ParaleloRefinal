@@ -65,6 +65,7 @@ $(function () {
                         }
                     }
                     $("#txtProveedor").html(html);
+                    buscar_art();
                     //$("#txtHint").html(encabezado+html+final);
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
