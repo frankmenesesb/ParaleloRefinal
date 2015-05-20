@@ -129,6 +129,7 @@ document.addEventListener = function(evt, handler, capture) {
     }
 };
 
+
 window.addEventListener = function(evt, handler, capture) {
     var e = evt.toLowerCase();
     if (typeof windowEventHandlers[e] != 'undefined') {

@@ -4,10 +4,34 @@
  * and open the template in the editor.
  */
 
+
+
+
+
 var codArt = [];
 var canArt = [];
 
 var titleHeader = "";
+
+function onDeviceReady() {
+      document.addEventListener("backbutton", handleBackButton, true);
+}
+function handleBackButton(){
+ 
+    /*if($.mobile.activePage.attr('id') === 'home'
+              || $.mobile.activePage.attr('id') === 'listaUsuarios'){
+        navigator.app.exitApp();
+    }else if ($.mobile.activePage.attr('id') === 'cita'){
+        $.mobile.changePage('#listaUsuarios');
+    }else{
+        navigator.app.backHistory();
+    }*/
+    
+    var mensaje='no entra';
+}
+ 
+document.addEventListener("deviceready", onDeviceReady, false);
+
 
 window.onload = function()
 {
