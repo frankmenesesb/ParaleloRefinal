@@ -383,7 +383,7 @@ function formato(fechaP, proveedorP, nitP, usu) {
     }
 
     fin_mensaje = encabezado + fin_mensaje;
-    //imprimir(fin_mensaje,usu);
+    imprimir(fin_mensaje,usu);
 
     alert(":" + fin_mensaje);
 
