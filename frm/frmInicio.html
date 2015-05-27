@@ -23,21 +23,17 @@ and open the template in the editor.
     </head>
     <body>
     <center>
-      
-            <div class="before-head">
+        <div class="before-head">
+        </div>
+        <div class="panel head">
+            <div class="head-left">
+                <a class="btn boton-futduel"></a>
             </div>
-            <div class="panel head">
-
-
-                <div class="head-left">
-                    <a class="btn boton-futduel"></a>
-                </div>
-                <div class="head-center">Mis Recibos</div>
-                <div class="head-right">
-                    <a class="btn glyphicon glyphicon-menu-hamburger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"></a>
-                </div>
+            <div class="head-center">Mis Recibos</div>
+            <div class="head-right">
+                <a class="btn glyphicon glyphicon-menu-hamburger" onclick="$('#dialogAcciones').modal('show');"></a>
             </div>
-        
+        </div>
         <div class="panel body">
             <br>
             <br>
@@ -52,26 +48,24 @@ and open the template in the editor.
                             <li class="list-group-item">
                                 <table>
                                     <tr>
-                                        <td style="width: 5%;"><img src="../images/icon 07.png" alt="" style="height: 20px;"></td>
+                                        <td style="width: 5%;"><img src="../images/icon 07.png" alt="" style="height: 34px; width: 34px;"></td>
                                         <td style="width: 50%;"><h4><label style="color: #245580;">&nbsp Pendientes</label></h4></td>
-                                        <td style="width: 10%;"><img src="../images/icon 03 1.png" alt="" style="height: 20px;"></td>
-                                        <td style="width: 10%;"><img src="../images/icon 04 0.png" alt="" style="height: 20px;"></td>
                                     </tr>
                                 </table>
-
-
                             </li>
                             <li class="list-group-item" style="color: slategrey;">
-                                <table class="table">
+                            
+                                <table class="table" style="text-align: center;">
+                                    <tr>
+                                        <td><a class="list-group-item pen-imp"></a></td>
+
+                                    </tr>
                                     <tr>
                                         <td>Por imprimir</td>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Por enviar</td>
-                                        <td>7</td>
+
                                     </tr>
                                 </table>
+                            
                             </li>
                         </ul>
                     </div>
@@ -134,34 +128,65 @@ and open the template in the editor.
                 </ul>
             </div>
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header" style="background: #98bd13; color: white;">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h5 class="modal-title" id="exampleModalLabel">Seleccione la opcion que desee</h5>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <ul class="list-group" >
-                                        
-                                        <li class="list-group-item"><a role="menuitem" tabindex="-1" href="#"><img src="../images/icon entregado.png" alt="" style="height: 40px;"></a></li>
-                                        <li class="list-group-item"><a role="menuitem" tabindex="-1" href="#"><img src="../images/icon 06.png" alt="" style="height: 40px;"></a></li>
-                                    </ul>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer" style="background: #c9e2b3; color: white;">
-                            <a class="link" href="../index.html"><img src="../images/icon 10.png" alt="" style="height: 28px;">&nbsp Cerrar Sesión</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
 
     </center>
+    <div class="modal fade" id="dialogAcciones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div align="left" class="modal-header" style="background: #2e6399; width: 100%;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                    <div  class="modal-title" id="myModalLabel" style="width: 100%;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="../images/icon-acciones.png" alt="" style="width: 27px; height: 28px;">
+                                </td>
+                                <td>
+                                    <label style="color:white; font-size: 20px;">&nbsp;&nbsp;Acciones</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-body" id="divContent">
+                    <div class="panel panel-body body-white">
+                        <div class="margen-white">
+                            <div>
+                                <p style="color: #71a1d1; font-size: 12px;">Seleccion la opción que desee</p>
+                            </div>
+                            <br>
+                            <div class="list-group" align="left" style="width:100%">
+                                <table class="table" style="font-size: 12px;">
+                                    <tr>
+                                        <td>
+                                            <a  class="list-group-item usuario_button" style="border: transparent;"><img src="../images/icon-entregar.png" alt="Smiley face" height="37" width="38"/> Entregar Recibos</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a  class="list-group-item usuario_button" style="border: transparent;"><img src="../images/icon-recibos.png" alt="Smiley face" height="37" width="38"/> Consultar Recibos</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a  class="list-group-item usuario_button" style="border: transparent;"><img src="../images/icon-cerrarSesion.png" alt="Smiley face" height="37" width="38"/> Cerra Sesión</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 

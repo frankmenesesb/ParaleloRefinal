@@ -98,11 +98,21 @@ div.body{
     
 }
 
+div.body-white{
+    
+    background: white;
+}
+
 div.margen{
     width: 290px;
     background: #F3F3F3;
     border-bottom: 1px solid transparent;
     
+}
+
+div.margen-white{
+    width: 100%;
+    background: white;
 }
 
 div.margen-recibo{
@@ -357,4 +367,13 @@ a.boton-editar-rec:hover{
     height: 60px;
     background-position: center;
     
+}
+
+a.pen-imp{
+    background-image: url(../images/btn-imprimir-0.png);
+    background-size: 34px 34px;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 40px;
+    background-position: center;
 }
