@@ -258,10 +258,10 @@ a.boton-factura:hover{
     
     background: transparent;
     background-image: url(../images/btn-new-1.png);
-    background-size: 60px 60px;
+    background-size: 70px 70px;
     background-repeat: no-repeat;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background-position: center;
     
 }

@@ -23,7 +23,7 @@ and open the template in the editor.
         <script src="../js/util/main.js"></script>
         <script src="../js/get/getProveedor.js"></script>
         <script src="../js/get/getArticulos.js"></script>
-        
+
         <script src="../js/set/setRecibo.js"></script>
         <script src="../js/set/setReciboDetallado.js"></script>
 
@@ -75,8 +75,14 @@ and open the template in the editor.
                             </div>
                         </li>
                         <li class="list-group-item">
+                            <div class="form-group">
+                                <select id="txtPlazaProveedor" class="form-control" onchange="buscar_proveedor();"></select>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
                             <div>
                                 <select id="txtProveedor" class="form-control" onchange="buscar_art();">
+                                    <option value="N">Seleccione Proveedor</option>
                                 </select>
                             </div>
                         </li>

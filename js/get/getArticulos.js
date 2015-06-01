@@ -7,12 +7,12 @@
 var articulos = new Array();
 
 //$(function () {
-    //$(".find_button").click(function () {
+//$(".find_button").click(function () {
 
-function buscar_art(){
+function buscar_art() {
     //variables de entrada
     var strProv = $("#txtProveedor").val();
-    
+    var strPlaza = $("#txtPlazaProveedor").val();
     //variables locales
 
     var id;
@@ -20,82 +20,88 @@ function buscar_art(){
     var imagen;
     var html;
 
-    var dataString = {'idProveedor': strProv};
+
+    var dataString = {'idproveedor': strProv};
+
+    if (strPlaza === 'N') {
+        $("#recibo").html('');
+    }else if (strProv === 'N') {
+        $("#recibo").html('');
+    } else {
+
+        $.ajax({
+            type: 'POST',
+            data: dataString,
+            dataType: 'json',
+            //url: "http://refinal.frienderco.com/php/get/getArticulos.php",
+            url: "http://refinal.frienderco.com/php/get/getArticulosProveedor.php",
+            //url: "../php/get/getArticulos.php",
+            success: function (jsonResp) {
+
+                if (jsonResp.RESPONSE) {
 
 
-    $.ajax({
-        type: 'POST',
-        data: dataString,
-        dataType: 'json',
-        //url: "http://refinal.frienderco.com/php/get/getArticulos.php",
-        url: "http://refinal.frienderco.com/php/get/getArticulosProveedor.php",
-        //url: "../php/get/getArticulos.php",
-        success: function (jsonResp) {
+                    if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-            if (jsonResp.RESPONSE) {
-
-
-                if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
-
-                    alert('Error no hay articulos!!');
-                }
-                if (jsonResp.MESSAGE === "") {
-
-                    for (var i = 0; i < jsonResp.DATA.length; i++) {
-
-
-                        id = jsonResp.DATA[i]["id_art"];
-                        descripcion = jsonResp.DATA[i]["descripcion"];
-                        imagen = jsonResp.DATA[i]["imagen"];
-
-
-                        var log = "";
-                        if ((descripcion === null || descripcion === "") || (id === null || id === "")) {
-
-                            alert("Error: articulos con errores o sin existencia ");
-
-                        } else {
-
-                            html += '<tr>';
-                            html += '<td>';
-                            html += '<img src="../images/'+imagen+'" alt="">';
-                            html += '</td>';
-                            html += '<td>';
-                            html += ''+descripcion+'';
-                            html += '</td>';
-                            html += '<td>';
-                            html += "<input type=\"number\" class=\"form-control\" id=\""+id+"\" placeholder=\"0 Kg.\" onclick=\"ir('"+id+"');\"/>";
-                            html += '</td>';
-                            html += '<td>';
-                            html += '<label>Kg.</label>';
-                            html += '</td>';
-                            html += '</tr>';
-                            
-                            codArt.push(id);
-                            
-                            //articulos.add(id);
-
-                        }
+                        alert('Error no hay articulos!!');
                     }
-                    $("#recibo").html(html);
-                    
-                    
+                    if (jsonResp.MESSAGE === "") {
 
-                } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("El proveedor no tiene Articulos asignados por favor informar en oficina.");
-                    $("#recibo").html('');
+                        for (var i = 0; i < jsonResp.DATA.length; i++) {
+
+
+                            id = jsonResp.DATA[i]["id_art"];
+                            descripcion = jsonResp.DATA[i]["descripcion"];
+                            imagen = jsonResp.DATA[i]["imagen"];
+
+
+                            var log = "";
+                            if ((descripcion === null || descripcion === "") || (id === null || id === "")) {
+
+                                alert("Error: articulos con errores o sin existencia ");
+
+                            } else {
+
+                                html += '<tr>';
+                                html += '<td>';
+                                html += '<img src="../images/' + imagen + '" alt="">';
+                                html += '</td>';
+                                html += '<td>';
+                                html += '' + descripcion + '';
+                                html += '</td>';
+                                html += '<td>';
+                                html += "<input type=\"number\" class=\"form-control\" id=\"" + id + "\" placeholder=\"0 Kg.\" onclick=\"ir('" + id + "');\"/>";
+                                html += '</td>';
+                                html += '<td>';
+                                html += '<label>Kg.</label>';
+                                html += '</td>';
+                                html += '</tr>';
+
+                                codArt.push(id);
+
+                                //articulos.add(id);
+
+                            }
+                        }
+                        $("#recibo").html(html);
+
+
+
+                    } else if (jsonResp.MESSAGE === "EMPTY") {
+                        alert("El proveedor no tiene Articulos asignados por favor informar en oficina.");
+                        $("#recibo").html('');
+                    }
+                } else {
+                    alert("Ocurrio Un error:" + jsonResp.MESSAGE);
                 }
-            } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+
+
+            },
+            error: function (jsonResp) {
+                alert("Ocurrio Un error");
             }
-
-
-        },
-        error: function (jsonResp) {
-            alert("Ocurrio Un error");
-        }
-    });
-
+        });
+    }
 
     // });
 
