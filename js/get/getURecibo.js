@@ -321,6 +321,7 @@ function formato(fechaP, proveedorP, nitP, usu) {
     var cantidad_proveedor = "";
     var nit = "Nit: "+nitP;
     var cantidad_nit = "";
+    var espacio_final;
 
     fecha = "Fecha: "+fechaP;
     cantidad_emp = empresa.length;
@@ -373,19 +374,21 @@ function formato(fechaP, proveedorP, nitP, usu) {
             espacio = espacio + " ";
             cantidad = parseInt(cantidad) + 1;
         }
-
+        
+        espacio_final=espacio;
+        
         mensaje = inicio + t1 + espacio + t2 + fin;
 
-        fin_mensaje = fin_mensaje + mensaje +espacio+espacio+espacio+espacio+espacio+espacio;
+        fin_mensaje = fin_mensaje + mensaje;
         espacio = "";
         cantidad = "";
 
     }
 
-    fin_mensaje = encabezado + fin_mensaje;
+    fin_mensaje = encabezado + fin_mensaje+espacio_final+espacio_final+espacio_final+espacio_final;
     imprimir(fin_mensaje,usu);
 
-    alert(":" + fin_mensaje);
+    //alert(":" + fin_mensaje);
 
 }
 
