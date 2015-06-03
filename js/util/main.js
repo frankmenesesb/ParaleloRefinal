@@ -64,9 +64,9 @@ $(function () {
 
 
 $(function () {
-    $(".usuario_button").click(function () {
+    $(".rec_mod_button").click(function () {
         
-        location.href = 'frmUsuarios.html?var='+$("#recibirVariable").val()+'$';
+        location.href = 'frmGestionRecibos.html?var='+$("#recibirVariable").val()+'$';
         
         
   });

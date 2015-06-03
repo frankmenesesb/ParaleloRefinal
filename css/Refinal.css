@@ -377,3 +377,56 @@ a.pen-imp{
     height: 40px;
     background-position: center;
 }
+
+
+a.boton-atras-b{
+    background: transparent;
+   
+    background-image: url(../images/btn-atras.png);
+    background-size: 110px 35px;
+    background-repeat: no-repeat;
+    width: 110px;
+    height: 35px;
+    background-position: center;
+    
+    
+}
+
+a.boton-atras-b:hover{
+    
+    background: transparent;
+    background-image: url(../images/btn-atras2.png);
+    background-size: 110px 35px;
+    background-repeat: no-repeat;
+    width: 110px;
+    height: 35px;
+    background-position: center;
+    
+}
+
+
+a.boton-listo{
+    background: transparent;
+   
+    background-image: url(../images/btn-listo-0.png);
+    background-size: 166px 40px;
+    background-repeat: no-repeat;
+    width: 166px;
+    height: 40px;
+    background-position: center;
+    
+    
+}
+
+a.boton-listo:hover{
+    
+    //background: #CDE6D8;
+    background: transparent;
+    background-image: url(../images/btn-listo-1.png);
+    background-size: 166px 40px;
+    background-repeat: no-repeat;
+    width: 166px;
+    height: 40px;
+    background-position: center;
+    
+}

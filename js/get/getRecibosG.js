@@ -96,13 +96,19 @@ $(document).ready(function () {
 
 function getAllRecibos() {
 
-    var dataParams = {'idRecibo': "NULL"};
+    var recibiendoVariable = location.search.slice(location.search.indexOf("=") + 1, location.search.indexOf("$"));
+    $("#recibirVariable").val(recibiendoVariable);
+
+    var strLog = $("#recibirVariable").val();
+    //alert(strLog);
+    var dataParams = {'idRecibo': "NULL", 'usuario': strLog};
+    //var dataParams = {'idRecibo': "NULL"};
 
     $.ajax({
         type: 'POST',
         data: dataParams,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getRecibosEnc.php",
+        url: "http://refinal.frienderco.com/php/get/getRecibosEncXUsuario.php",
         //url: "../php/get/getUser.php",
         success: function (jsonResp) {
 
@@ -135,14 +141,14 @@ function getAllRecibos() {
 
 
                         html += '<tr id="row_' + i + '">';
-                        html += '<td>';
+                        html += '<td style="width: 10%;">';
                         html += '' + id_rec_enc + '';
                         html += '</td>';
-                        html += '<td>';
+                        html += '<td style="width: 20%;">';
                         html += '' + fecha + '';
                         html += '</td>';
-                        
-                        html += '<td>';
+
+                        html += '<td style="width: 20%;">';
                         //html += ''+estado+''
                         if (estado === "Generado") {
                             html += '<img src="../images/icon activo.png" alt="Smiley face" height="32" width="31" title="Generado">';
@@ -152,10 +158,10 @@ function getAllRecibos() {
                             html += '<img src="../images/icon entregado.png" alt="Smiley face" height="32" width="31" title="Entregado">';
                         }
                         html += '</td>';
-                       
+
                         if (pageName === "frmGestionRecibos.html") {
                             html += '<td>';
-                            html += "<a id='btnUpdRec_" + i + "' onclick='updRecibo(\"" + id_rec_enc + "\",\"" + estado + "\",\"" + fecha + "\");'><span style='background-size: 110px; height: 35px; background-image: url(\"../images/btn-editar-0.png\"); display:block; background-repeat: no-repeat;' ></span></a>";
+                            html += "<a id='btnUpdRec_" + i + "' onclick='updRecibo(\"" + id_rec_enc + "\",\"" + estado + "\",\"" + fecha + "\");'><span style='background-size: 38px; height: 38px; background-image: url(\"../images/btn-editar.png\"); display:block; background-repeat: no-repeat;' ></span></a>";
                             //alert("<a id='btnUpdRec_" + i + "' onclick='updRecibo(" + id_rec_enc + ");'><span style='background-size: 110px; height: 35px; background-image: url(\"../images/btn-editar-0.png\"); display:block; background-repeat: no-repeat;' ></span></a>");
                             html += '</td>';
                         }
