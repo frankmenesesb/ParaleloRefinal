@@ -27,39 +27,16 @@ and open the template in the editor.
     <body>
     <center>
         <div class="super-head">
+            <div class="before-head">
+            </div>
             <div class="panel head">
-                <nav class="navbar navbar-default nav-head-re" >
-                    <div class="container-fluid" style="background: white;">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand boton-refinal-head" onclick="inicioMenu();"></a> 
-                        </div>
-
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a class="boton-user-sesion"></a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  style="color: #71a1d1;"><label id="nom-user"></label><span class="caret"></span></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="frmMainA.html">Inicio</a></li>
-                                        <li class="divider"></li>
-                                        <li><a class="cerrar-sesion">Cerrar Sesión</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div><!-- /.navbar-collapse -->
-                    </div><!-- /.container-fluid -->
-                </nav>
+                <div class="head-left">
+                    <a class="btn boton-futduel"></a>
+                </div>
+                <div class="head-center">Impresión de Recibo</div>
+                <div class="head-right">
+                    <a class="btn glyphicon glyphicon-menu-hamburger" ></a>
+                </div>
             </div>
         </div>
         <br>
@@ -89,7 +66,7 @@ and open the template in the editor.
                                     <table class="table" id="listRecibos">
                                         <thead>
                                             <tr class="filters" >
-                                                <th><input type="text" class="form-control" placeholder="Consecutivo" style="font-size: 10px;color:#00CCFF;" disabled></th>
+                                                <th><input type="text" class="form-control" placeholder="Consec." style="font-size: 10px;color:#00CCFF;" disabled></th>
                                                 <th><input type="text" class="form-control" placeholder="Fecha" style="font-size: 10px;" disabled></th>
                                                 <th><input type="text" class="form-control" placeholder="Estado" style="font-size: 10px;" disabled></th>
                                                 <th><input type="text" class="form-control" placeholder="Actualizar" style="font-size: 10px;" disabled></th>
