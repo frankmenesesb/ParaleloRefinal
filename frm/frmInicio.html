@@ -37,9 +37,6 @@ and open the template in the editor.
         <div class="panel body">
             <br>
             <br>
-            <div class="panel-hora">
-                <h5></h5>
-            </div>
             <div class="margen">
                 <br>
                 <div class="movil">
@@ -54,18 +51,16 @@ and open the template in the editor.
                                 </table>
                             </li>
                             <li class="list-group-item" style="color: slategrey;">
-                            
+
                                 <table class="table" style="text-align: center;">
                                     <tr>
                                         <td><a id="btn-pen-print" class="list-group-item pen-imp"></a></td>
-
                                     </tr>
                                     <tr>
                                         <td>Por imprimir</td>
 
                                     </tr>
                                 </table>
-                            
                             </li>
                         </ul>
                     </div>
@@ -148,6 +143,60 @@ and open the template in the editor.
                                 </td>
                                 <td>
                                     <label style="color:white; font-size: 20px;">&nbsp;&nbsp;Acciones</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-body" id="divContent">
+                    <div class="panel panel-body body-white">
+                        <div class="margen-white">
+                            <div>
+                                <p style="color: #71a1d1; font-size: 12px;">Seleccion la opción que desee</p>
+                            </div>
+                            <br>
+                            <div class="list-group" align="left" style="width:100%">
+                                <table class="table" style="font-size: 12px;">
+                                    <tr>
+                                        <td>
+                                            <a  class="list-group-item" style="border: transparent;" onclick="$('#dialogEntregas').modal('show'); "><img src="../images/icon-entregar.png" alt="Smiley face" height="37" width="38"/> Entregar Recibos</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a  class="list-group-item rec_mod_button" style="border: transparent;"><img src="../images/icon-recibos.png" alt="Smiley face" height="37" width="38"/> Consultar Recibos</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a  class="list-group-item"  href="../index.html" style="border: transparent;"><img src="../images/icon-cerrarSesion.png" alt="Smiley face" height="37" width="38"/> Cerra Sesión</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="dialogEntregas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div align="left" class="modal-header" style="background: #2e6399; width: 100%;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                    <div  class="modal-title" id="myModalLabel" style="width: 100%;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="../images/icon-entregar.png" alt="" style="width: 27px; height: 28px;">
+                                </td>
+                                <td>
+                                    <label style="color:white; font-size: 20px;">&nbsp;&nbsp;Entrega</label>
                                 </td>
                             </tr>
                         </table>

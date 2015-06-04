@@ -26,7 +26,7 @@ and open the template in the editor.
     </head>
     <body>
     <center>
-        <div class="super-head">
+        
             <div class="before-head">
             </div>
             <div class="panel head">
@@ -38,7 +38,7 @@ and open the template in the editor.
                     <a class="btn glyphicon glyphicon-menu-hamburger" ></a>
                 </div>
             </div>
-        </div>
+        
         <br>
         <br>
         <div class="panel body">
@@ -127,6 +127,41 @@ and open the template in the editor.
                                 <br>
                                 <div class="form-group">
                                     <a  class="btn boton-listo" id="btnUpdateRec"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="dialogReciboMotivo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        </div>
+        <div id="divContent2"></div>
+        <div class="modal fade" id="dialogUpdReciboMotivo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background: #2e6399; width: 100%;">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <div align="left" class="modal-title" id="myModalLabel">
+                            <label style="color:white; font-size: 180%;">&nbsp;Motivo Cambio Estado</label>
+                        </div>
+                    </div>
+                    <div class="modal-body" id="divContent">
+                        <div class="panel panel-body body-white">
+                            <div class="margen-white">
+                                <br>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="txtIdReciboM" placeholder="Codigo id" disabled="disabled">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="5" id="txtMotivoM" placeholder="Motivo Anulacion"></textarea>
+                                </div>
+                                <br>
+                                
+                                <div class="form-group">
+                                    <a  class="btn boton-listo" onclick="motivo();"></a>
                                 </div>
                             </div>
                         </div>

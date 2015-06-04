@@ -62,18 +62,18 @@ function buscar_art() {
 
                             } else {
 
-                                html += '<tr>';
-                                html += '<td>';
+                                html += '<tr style="width: 100%;">';
+                                html += '<td style="width: 5%;">';
                                 html += '<img src="../images/' + imagen + '" alt="">';
                                 html += '</td>';
-                                html += '<td>';
+                                html += '<td style="width: 3%;">';
                                 html += '' + descripcion + '';
                                 html += '</td>';
-                                html += '<td>';
-                                html += "<input type=\"number\" class=\"form-control\" id=\"" + id + "\" placeholder=\"0 Kg.\" onclick=\"ir('" + id + "');\"/>";
+                                html += '<td style="width: 80%;">';
+                                html += "<input style=\"width: 100%;\" size=\"70\" type=\"number\" class=\"form-control\" id=\"" + id + "\" placeholder=\"0 Kg.\" onclick=\"ir('" + id + "');\"/>";
                                 html += '</td>';
-                                html += '<td>';
-                                html += '<label>Kg.</label>';
+                                html += '<td style="width: 5%;">';
+                                html += '<label style="font-size:10px;">Kg.</label>';
                                 html += '</td>';
                                 html += '</tr>';
 

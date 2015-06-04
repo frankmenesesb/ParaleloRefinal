@@ -430,3 +430,36 @@ a.boton-listo:hover{
     background-position: center;
     
 }
+
+
+button.boton-filtro{
+    background: transparent;
+   
+    background-image: url(../images/btn-filtro-0.png);
+    background-size: 100px 25px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 25px;
+    background-position: center;
+    
+    
+}
+
+
+
+
+
+
+
+button.boton-filtro:hover{
+    
+    //background: #CDE6D8;
+    background: transparent;
+    background-image: url(../images/btn-filtro-1.png);
+    background-size: 100px 25px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 25px;
+    background-position: center;
+    
+}

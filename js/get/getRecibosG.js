@@ -140,15 +140,15 @@ function getAllRecibos() {
 
 
 
-                        html += '<tr id="row_' + i + '">';
+                        html += '<tr id="row_' + i + '" style="width: 98%;">';
                         html += '<td style="width: 10%;">';
                         html += '' + id_rec_enc + '';
                         html += '</td>';
-                        html += '<td style="width: 20%;">';
+                        html += '<td style="width: 30%;">';
                         html += '' + fecha + '';
                         html += '</td>';
 
-                        html += '<td style="width: 20%;">';
+                        html += '<td style="width: 8%;">';
                         //html += ''+estado+''
                         if (estado === "Generado") {
                             html += '<img src="../images/icon activo.png" alt="Smiley face" height="32" width="31" title="Generado">';
@@ -160,7 +160,7 @@ function getAllRecibos() {
                         html += '</td>';
 
                         if (pageName === "frmGestionRecibos.html") {
-                            html += '<td>';
+                            html += '<td style="width: 20%;">';
                             html += "<a id='btnUpdRec_" + i + "' onclick='updRecibo(\"" + id_rec_enc + "\",\"" + estado + "\",\"" + fecha + "\");'><span style='background-size: 38px; height: 38px; background-image: url(\"../images/btn-editar.png\"); display:block; background-repeat: no-repeat;' ></span></a>";
                             //alert("<a id='btnUpdRec_" + i + "' onclick='updRecibo(" + id_rec_enc + ");'><span style='background-size: 110px; height: 35px; background-image: url(\"../images/btn-editar-0.png\"); display:block; background-repeat: no-repeat;' ></span></a>");
                             html += '</td>';
@@ -543,12 +543,34 @@ function updRecibo(id_rec, est_rec, fec_rec) {
 $(function () {
     $("#btnUpdateRec").on("click", function () {
 
+
+
         var id = $("#txtIdRecibo").val();
         var estado = $("#selEstadoRec").val();
 
+        $("#txtIdReciboM").val(id);
+        $('#dialogUpdReciboMotivo').modal('show');
+        //motivo(id);
         //setUdpRec
-        var dataParams = {'idRecibo': id, 'estado': estado};
 
+
+
+    });
+});
+
+
+function motivo() {
+
+    var id = $("#txtIdRecibo").val();
+    var estado = $("#selEstadoRec").val();
+
+
+
+
+    var l = confirm("Desea Anular este recibo?");
+    if (l === true) {
+
+        var dataParams = {'idRecibo': id, 'estado': estado};
         $.ajax({
             type: "POST",
             url: "http://refinal.frienderco.com/php/set/setUdpRec.php",
@@ -560,6 +582,7 @@ $(function () {
                 if (jsonResp.RESPONSE) {
                     //descargarArchivo(generarTexto(jsonResp.DATA), 'archivo.txt');
                     $('#dialogUpdRecibo').modal('hide');
+                    $('#dialogUpdReciboMotivo').modal('hide');
                     getAllRecibos();
 
                 } else {
@@ -572,5 +595,16 @@ $(function () {
                 alert("Ocurrio Un error Diferente");
             }
         });
-    });
-});
+    } else {
+        
+        $('#dialogUpdRecibo').modal('hide');
+        $('#dialogUpdReciboMotivo').modal('hide');
+    }
+
+
+
+    //btnUpdateRec
+
+
+
+}

@@ -69,7 +69,7 @@ div.head-right{
 
 
 div.movil{
-    width: 90%;
+    width: 95%;
     background: white;
     z-index: 1;
 }
@@ -85,10 +85,21 @@ div.body{
     background: #f9f9f9;
 }
 
+div.body-white{
+    
+    background: white;
+}
+
 div.margen{
-    width: 80%;
+    width: 90%;
     //background: white;
     background: #f9f9f9;
+}
+
+div.margen-white{
+    width: 90%;
+    background: white;
+    
 }
 
 div.footer {
