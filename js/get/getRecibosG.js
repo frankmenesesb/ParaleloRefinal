@@ -95,14 +95,15 @@ $(document).ready(function () {
 
 
 function getAllRecibos() {
-
+    cargar();
+    var id_rec_enc = "";
+    var nombre_usuario = "";
+    var estado = "";
+    var fecha = "";
     var recibiendoVariable = location.search.slice(location.search.indexOf("=") + 1, location.search.indexOf("$"));
     $("#recibirVariable").val(recibiendoVariable);
-
     var strLog = $("#recibirVariable").val();
-    //alert(strLog);
     var dataParams = {'idRecibo': "NULL", 'usuario': strLog};
-    //var dataParams = {'idRecibo': "NULL"};
 
     $.ajax({
         type: 'POST',
@@ -110,41 +111,23 @@ function getAllRecibos() {
         dataType: 'json',
         url: "http://refinal.frienderco.com/php/get/getRecibosEncXUsuario.php",
         //url: "../php/get/getUser.php",
+
         success: function (jsonResp) {
-            
-            
-                
-            
-            
+
+
             if (jsonResp.RESPONSE) {
-               
-                //updateBarA(dato);
-                //alert(JSON.stringify(jsonResp));
-
                 if (jsonResp.MESSAGE === "") {
-
                     var html = "";
                     var nuPendientes = 0;
-
                     for (var i = 0; i < jsonResp.DATA.length; i++) {
-
-                        var id_rec_enc = jsonResp.DATA[i]["id_rec_enc"];
-                        var nombre_usuario = jsonResp.DATA[i]["nombre_usuario"];
-                        var estado = jsonResp.DATA[i]["estado"];
-                        var fecha = jsonResp.DATA[i]["fecha"];
-                        //lblRecPen
-
+                        id_rec_enc = jsonResp.DATA[i]["id_rec_enc"];
+                        nombre_usuario = jsonResp.DATA[i]["nombre_usuario"];
+                        estado = jsonResp.DATA[i]["estado"];
+                        fecha = jsonResp.DATA[i]["fecha"];
                         if (estado === "Pendiente") {
                             nuPendientes++;
                             arrayPendientes.push(id_rec_enc);
                         }
-                        /*var log = "";
-                         if ((descripcion === null || descripcion === "") || (id === null || id === "")) {
-                         alert("Error: articulos con errores o sin existencia ");
-                         } else {*/
-
-
-
                         html += '<tr id="row_' + i + '" style="width: 98%;">';
                         html += '<td style="width: 10%;">';
                         html += '' + id_rec_enc + '';
@@ -152,9 +135,8 @@ function getAllRecibos() {
                         html += '<td style="width: 30%;">';
                         html += '' + fecha + '';
                         html += '</td>';
-
                         html += '<td style="width: 8%;">';
-                        //html += ''+estado+''
+
                         if (estado === "Generado") {
                             html += '<img src="../images/icon activo.png" alt="Smiley face" height="32" width="31" title="Generado">';
                         } else if (estado === "Anulado") {
@@ -171,19 +153,13 @@ function getAllRecibos() {
                             html += '</td>';
                         }
                         html += '</tr>';
-                        //articulos.add(id);
-
-
-
-
-
-
                     }
 
                     $("#lblRecPen").html("<h3>" + nuPendientes + "</h3>");
 
                     $("#listRecibos tbody").html(html);
 
+                    $("#dialogProgress").modal('hide');
                     $("#listRecibos tbody").find("tr").each(function () {
                         var idRow = $(this).attr('id');
                         idRow = idRow.replace("row_", "");
@@ -219,6 +195,9 @@ function getAllRecibos() {
         error: function (jsonResp) {
             alert("Ocurrio Un error");
         }
+
+
+
     });
 
 }
@@ -601,7 +580,7 @@ function motivo() {
             }
         });
     } else {
-        
+
         $('#dialogUpdRecibo').modal('hide');
         $('#dialogUpdReciboMotivo').modal('hide');
     }

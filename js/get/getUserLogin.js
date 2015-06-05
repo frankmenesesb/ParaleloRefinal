@@ -9,7 +9,7 @@
 $(function () {
     $(".find_button").click(function () {
 
-
+        cargar();
         //variables de entrada
         var strLog = $("#txtUsuario").val();
         var strPass = $("#txtContrasena").val();
@@ -85,11 +85,13 @@ $(function () {
                                 } else {
 
                                     if (tipo === 'A') {
-                                       
+                                         $("#dialogProgress").modal('hide');
                                         location.href = 'frm/frmMainA.html?var='+id+'$';
                                     } else if (tipo === 'R') {
+                                        $("#dialogProgress").modal('hide');
                                         location.href = 'frm/frmInicio.html?var='+id+'$';
                                     } else if (tipo === 'S') {
+                                        $("#dialogProgress").modal('hide');
                                         location.href = 'frm/frmMainS.html?var='+id+'$';
 
                                     }
