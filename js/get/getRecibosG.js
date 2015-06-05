@@ -111,9 +111,14 @@ function getAllRecibos() {
         url: "http://refinal.frienderco.com/php/get/getRecibosEncXUsuario.php",
         //url: "../php/get/getUser.php",
         success: function (jsonResp) {
-
+            
+            
+                
+            
+            
             if (jsonResp.RESPONSE) {
-
+               
+                //updateBarA(dato);
                 //alert(JSON.stringify(jsonResp));
 
                 if (jsonResp.MESSAGE === "") {

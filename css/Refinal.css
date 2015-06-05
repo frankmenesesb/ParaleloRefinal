@@ -80,13 +80,15 @@ div.head-right{
 
 
 div.movil{
-    width: 290px;
+    //width: 290px;
+    width: 95%;
     background: white;
     z-index: 1;
 }
 
 div.movil-recibo{
-    width: 290px;
+    //width: 290px;
+    width: 95%;
     background: transparent;
     z-index: 1;
 }
@@ -104,7 +106,8 @@ div.body-white{
 }
 
 div.margen{
-    width: 290px;
+    //width: 290px;
+    width: 100%;
     background: #F3F3F3;
     border-bottom: 1px solid transparent;
     

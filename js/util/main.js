@@ -6,7 +6,8 @@
 
 
 
-
+var iBar=5;
+var plus =5;
 
 var codArt = [];
 var canArt = [];
@@ -45,6 +46,7 @@ var recibiendoVariable = location.search.slice( location.search.indexOf("=") + 1
     $("#recibirVariable").val(recibiendoVariable);
     
     updateClock();
+    updateBarA();
 
 
 
@@ -120,3 +122,34 @@ $(function () {
     });
 
 });
+
+
+
+function updateBarA(){
+    
+    
+
+    iBar=parseInt(iBar)+parseInt(plus);
+    //alert(iBar);
+    
+    var html="";
+    html+='<div class="progress">';
+    html+='<div class="progress-bar progress-bar-striped active" role="progressbar"aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:'+iBar+'%">'+iBar+'%</div>';
+    html+='</div>';
+    
+    
+    $("#dialogProgress").modal('show');
+    $("#progreso-pagina").html(html);
+    //alert(id);
+    
+    
+    if(parseInt(iBar)<100){
+       
+    setTimeout("updateBarA()",200) ;
+    
+    }
+    
+    if(parseInt(iBar)===100){
+        $("#dialogProgress").modal('hide');
+    }
+}
