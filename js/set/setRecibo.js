@@ -4,7 +4,7 @@ $(function () {
 
 
     $(".submit_button").click(function () {
-
+        
 
 
 
@@ -22,22 +22,12 @@ $(function () {
         var dataString = {'usuario': strLog, 'proveedor': strProveedor};
 
 
-        for (x=0; x<codArt.length; x++){
-            if($("#" + codArt[x]).val()!== null){
-               
-                can_totales+=Number($("#" + codArt[x]).val());
+        for (x = 0; x < codArt.length; x++) {
+            if ($("#" + codArt[x]).val() !== null) {
+
+                can_totales += Number($("#" + codArt[x]).val());
             }
         }
-
-//        for (x = 1; x < 17; x++) {
-//
-//            if ($("#" + x).val() !== null) {
-//
-//                can_totales += Number($("#" + x).val());
-//            }
-//        }
-
-
 
         if (strLog === '') {
 
@@ -46,11 +36,13 @@ $(function () {
 
         } else if (can_totales === '' || can_totales === null || can_totales === 0 || can_totales === '0') {
 
-            alert("No puedes guardar un recibo con todas las cantidades en 0 (cero). -->"+can_totales);
+            alert("No puedes guardar un recibo con todas las cantidades en 0 (cero). -->" + can_totales);
 
 
         } else
         {
+            
+            
 //esta es una prueba
             $.ajax({
                 type: "POST",
@@ -61,30 +53,29 @@ $(function () {
                 cache: true,
                 success: function (jsonResp, html) {
 
-
+                cargar();
                     if (jsonResp.RESPONSE) {
 
+                        for (x = 0; x < codArt.length; x++) {
 
-                        //alert(jsonResp.MESSAGE);
-                        //location.href = '../frm/frmInicio.html?var='+strLog+'$';    
-                        for (x=0; x<codArt.length; x++){
-
-                            if($("#" + codArt[x]).val()!== null){
+                            if ($("#" + codArt[x]).val() !== null) {
 
                                 detallado(codArt[x], $("#" + codArt[x]).val());
                                 y = x;
+                                
+                                
 
                             }
+                            
+                            if(x===codArt.length){
+                                $("#dialogProgress").modal('hide');
+                            }
                         }
+
+
+
                         
-                        
-                        
-                       
                         alert(jsonResp.MESSAGE);
-                         
-
-                        //location.href = '../frm/frmInicio.html?var='+strLog+'$';    
-
                         if (y === canArt.length) {
 
                             var html = "Se guardo Correctamente!";
@@ -94,24 +85,11 @@ $(function () {
                             $("#txtRespuesta").html(html);
                             $("#txtRespuesta").focus();
 
-                            //location.href = 'frmReciboConsulta.html?var='+strLog+'$'+;
-
-
                         }
-                        
-                        
+
+
 
                         ultReciboEnc();
-                        
-//                        var r = confirm("Desea imprimir el recibo?");
-//                        if (r === true) {
-//                            uReciboEnc();
-//                        } else {
-//                            location.href = '../frm/frmInicio.html?var=' + strLog + '$';
-//                        }
-
-
-
                         if (jsonResp.MESSAGE === "") {
 
                             alert('XD');
@@ -155,7 +133,7 @@ function ultReciboEnc() {
     strLog = $("#recibirVariable").val();
 
     var dataString = {'usuario': strLog};
-
+    cargar();
 
     $.ajax({
         type: 'POST',
@@ -183,18 +161,6 @@ function ultReciboEnc() {
 
 
                         id_rec_enc = jsonResp.DATA[i]["id_rec_enc"];
-//                        observacion = jsonResp.DATA[i]["observacion"];
-//                        id_usuario = jsonResp.DATA[i]["id_usuario"];
-//                        nombre_usuario = jsonResp.DATA[i]["nombre_usuario"];
-//                        estado = jsonResp.DATA[i]["estado"];
-//                        fecha = jsonResp.DATA[i]["fecha"];
-//                        id_proveedor = jsonResp.DATA[i]["id_proveedor"];
-//                        nom_prov = jsonResp.DATA[i]["nom_prov"];
-
-                        //dato.push(id_rec_enc);
-
-
-
                         var log = "";
                         if ((id_rec_enc === null || id_rec_enc === "")) {
 
@@ -203,36 +169,21 @@ function ultReciboEnc() {
                         } else {
 
 
-
-
-                            //articulos.add(id);
-
-
-
-
-
-
                         }
                     }
-                    
+                     $("#dialogProgress").modal('hide');
                     var l = confirm("Desea revisar el recibo?");
-                        if (l === true) {
-                            
-                            location.href = '../frm/frmReciboBuscar.html?var=' + strLog + '$'+id_rec_enc+'*';
-                        } else {
-                            var r = confirm("Desea imprimir el recibo?");
+                    if (l === true) {
+
+                        location.href = '../frm/frmReciboBuscar.html?var=' + strLog + '$' + id_rec_enc + '*';
+                    } else {
+                        var r = confirm("Desea imprimir el recibo?");
                         if (r === true) {
                             uReciboEnc();
                         } else {
                             location.href = '../frm/frmInicio.html?var=' + strLog + '$';
                         }
-                        }
-                    //uReciboDet(id_rec_enc,strLog);
-                    /*for(var a=0; a < dato.length; a++){
-                     alert(dato[a]);
-                     }*/
-                    //$("#recibo").html(html);
-                    //$("#txtHint").html(encabezado+html+final);
+                    }
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
                     alert("Error: Recibo no existe!!");

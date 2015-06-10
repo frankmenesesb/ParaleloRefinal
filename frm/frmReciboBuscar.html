@@ -12,70 +12,23 @@ and open the template in the editor.
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/Refinal.css">
-
         <!-- Optional theme -->
         <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-
         <!-- Latest compiled and minified JavaScript -->
         <script src="../js/util/jquery-2.1.3.min.js"></script>
         <script src="../js/util/bootstrap.min.js"></script>
         <script src="../js/util/main.js"></script>
         <script src="../js/get/getReciboBuscar.js"></script>
         <script src="../js/get/getURecibo.js"></script>
+        <script src="../js/get/getRecDiv.js"></script>
         <script type="text/javascript" src="../cordova.js"></script>
         <script type="text/javascript" src="../cordova_plugins.js"></script>
-
         <script type="text/javascript" charset="utf-8" 
-src="../plugins/it.zenitlab.cordova.plugins.zbtprinter/www/zbtprinter.js"></script>
+        src="../plugins/it.zenitlab.cordova.plugins.zbtprinter/www/zbtprinter.js"></script>
         <script type="text/javascript" charset="utf-8" 
-src="../plugins/com.randdusing.bluetoothle/www/bluetoothle.js"></script>
-
+        src="../plugins/com.randdusing.bluetoothle/www/bluetoothle.js"></script>
         <script type="text/javascript" src="../js/util/conexion.js"></script>
-        <script>
 
-            var recibiendoRecibo = location.search.slice(location.search.indexOf("$") + 1, location.search.indexOf("*"));
-
-            //buscar_recibo(recibiendoRecibo);
-            uReciboEncDiv(recibiendoRecibo);
-            updateImg1();
-            $(function () {
-
-
-                $(".imp_button").click(function () {
-                    uReciboEncImp(recibiendoRecibo);
-                });
-            });
-
-            var i = 0;
-            var img;
-            function updateImg1() {
-
-                if (i === 1 || i === "1") {
-                    img = '<img src="../images/icon 01.png" alt="" style="height: 20px;">';
-                    i = parseInt(i) + 1;
-                    
-                    
-                }
-                if (i === 0 || i === "0") {
-                    img = '<img src="../images/icon 07.png" alt="" style="height: 20px;">';
-                    i = parseInt(i) + 1;
-                    
-                }
-                
-                
-                
-                $("#alerta").html(img);
-                setTimeout("updateImg1()", 1500);
-                
-                if (i === 2 || i === "2") {
-                    
-                    i=parseInt(0);
-                    
-                }
-
-            }
-
-        </script>
     </head>
     <body>
     <center>
@@ -88,7 +41,7 @@ src="../plugins/com.randdusing.bluetoothle/www/bluetoothle.js"></script>
                 </div>
                 <div class="head-center">Impresión de Recibo</div>
                 <div class="head-right">
-                    <a class="btn glyphicon glyphicon-menu-hamburger" ></a>
+                    <a class="btn boton-menu" ></a>
                 </div>
             </div>
         </div>
@@ -135,5 +88,32 @@ src="../plugins/com.randdusing.bluetoothle/www/bluetoothle.js"></script>
         </div>
 
     </center>
+    <div class="modal fade" id="dialogProgress" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="height: 100%; background: white;">
+        <div class="modal-dialog" style="height: 100%; background: transparent;">
+            <div class="modal-content" style="height: 100%; background: transparent;">
+
+                <div class="modal-body" id="divContent" style="height: 100%; background: transparent;">
+
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div id="progreso-pagina">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

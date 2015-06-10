@@ -11,6 +11,7 @@ var articulos = new Array();
 
 function buscar_art() {
     //variables de entrada
+    cargar();
     var strProv = $("#txtProveedor").val();
     var strPlaza = $("#txtPlazaProveedor").val();
     //variables locales
@@ -91,8 +92,12 @@ function buscar_art() {
                         alert("El proveedor no tiene Articulos asignados por favor informar en oficina.");
                         $("#recibo").html('');
                     }
+                    
+                    $("#dialogProgress").modal('hide');
                 } else {
+                    $("#dialogProgress").modal('hide');
                     alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                    
                 }
 
 

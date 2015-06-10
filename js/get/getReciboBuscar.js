@@ -21,7 +21,7 @@ var nom_prov2;
 
 function uReciboEncDiv(csc) {
 
-
+    
     var html;
 
     strLog = $("#recibirVariable").val();
@@ -96,6 +96,7 @@ function uReciboEncDiv(csc) {
                 } else if (jsonResp.MESSAGE === "EMPTY") {
                     alert("Error: Recibo no existe!!");
                 }
+                 $("#dialogProgress").modal('hide');
             } else {
                 alert("Ocurrio Un error:" + jsonResp.MESSAGE);
             }

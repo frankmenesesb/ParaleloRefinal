@@ -536,7 +536,7 @@ $(function () {
         $('#dialogUpdReciboMotivo').modal('show');
         //motivo(id);
         //setUdpRec
-
+        
 
 
     });

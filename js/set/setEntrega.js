@@ -48,6 +48,7 @@ function entrega(){
 
                     alert(jsonResp.MESSAGE);
                             $("#dialogEntregas").modal('hide');
+                            resumen();
                         
                         if (jsonResp.MESSAGE === "") {
 

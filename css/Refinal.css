@@ -381,6 +381,26 @@ a.pen-imp{
     background-position: center;
 }
 
+a.con-con{
+    background-image: url(../images/icon_03_0.png);
+    background-size: 34px 34px;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 40px;
+    background-position: center;
+    
+}
+
+
+a.sin-con{
+    background-image: url(../images/icon_03_1.png);
+    background-size: 34px 34px;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 40px;
+    background-position: center;
+}
+
 
 a.boton-atras-b{
     background: transparent;
@@ -463,6 +483,69 @@ button.boton-filtro:hover{
     background-repeat: no-repeat;
     width: 100px;
     height: 25px;
+    background-position: center;
+    
+}
+
+
+a.boton-menu{
+    background-image: url(../images/btn-menu.png);
+    background-size: 8px 30px;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 30px;
+    background-position: center;
+}
+
+
+a.boton-imprimir-rec-edit{
+    background: transparent;
+   
+    background-image: url(../images/btn-imprim-0.png);
+    background-size: 100px 40px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 40px;
+    background-position: center;
+    
+    
+}
+
+a.boton-imprimir-rec-edit:hover{
+    
+    background: transparent;
+    background-image: url(../images/btn-imprim-1.png);
+    background-size: 100px 40px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 40px;
+    background-position: center;
+    
+}
+
+
+a.boton-listo-edit{
+    background: transparent;
+   
+    background-image: url(../images/btn-edit-0.png);
+    background-size: 100px 40px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 40px;
+    background-position: center;
+    
+    
+}
+
+a.boton-listo-edit:hover{
+    
+    //background: #CDE6D8;
+    background: transparent;
+    background-image: url(../images/btn-edit-1.png);
+    background-size: 100px 40px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 40px;
     background-position: center;
     
 }

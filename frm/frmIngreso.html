@@ -23,19 +23,8 @@ and open the template in the editor.
         <script src="../js/util/main.js"></script>
         <script src="../js/get/getProveedor.js"></script>
         <script src="../js/get/getArticulos.js"></script>
-
         <script src="../js/set/setRecibo.js"></script>
         <script src="../js/set/setReciboDetallado.js"></script>
-
-        <script type="text/javascript" src="../cordova.js"></script>
-        <script type="text/javascript" src="../cordova_plugins.js"></script>
-
-        <script type="text/javascript" charset="utf-8" 
-        src="../plugins/it.zenitlab.cordova.plugins.zbtprinter/www/zbtprinter.js"></script>
-        <script type="text/javascript" charset="utf-8" 
-        src="../plugins/com.randdusing.bluetoothle/www/bluetoothle.js"></script>
-
-        <script type="text/javascript" src="../js/util/conexion.js"></script>
         <script src="../js/get/getURecibo.js"></script>
         <script>
             function ir(a) {
@@ -44,7 +33,13 @@ and open the template in the editor.
 
 
         </script>
-
+        <script type="text/javascript" src="../cordova.js"></script>
+        <script type="text/javascript" src="../cordova_plugins.js"></script>
+        <script type="text/javascript" charset="utf-8" 
+        src="../plugins/it.zenitlab.cordova.plugins.zbtprinter/www/zbtprinter.js"></script>
+        <script type="text/javascript" charset="utf-8" 
+        src="../plugins/com.randdusing.bluetoothle/www/bluetoothle.js"></script>
+        <script type="text/javascript" src="../js/util/conexion.js"></script>
     </head>
     <body>
     <center>
@@ -56,7 +51,7 @@ and open the template in the editor.
             </div>
             <div class="head-center">Nuevo Recibo</div>
             <div class="head-right">
-                <a class="btn glyphicon glyphicon-menu-hamburger" ></a>
+                <a class="btn boton-menu" ></a>
             </div>
         </div>
         <br>
@@ -142,6 +137,35 @@ and open the template in the editor.
             <br>
             <br>
         </div>
+
+        <div class="modal fade" id="dialogProgress" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="height: 100%; background: white;">
+            <div class="modal-dialog" style="height: 100%; background: transparent;">
+                <div class="modal-content" style="height: 100%; background: transparent;">
+
+                    <div class="modal-body" id="divContent" style="height: 100%; background: transparent;">
+
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div id="progreso-pagina">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
     </center>

@@ -89,7 +89,7 @@ function uReciboEnc() {
 
                         }
                     }
-                    uReciboDet(id_rec_enc,strLog);
+                    uReciboDet(id_rec_enc, strLog);
                     /*for(var a=0; a < dato.length; a++){
                      alert(dato[a]);
                      }*/
@@ -116,7 +116,7 @@ function uReciboEnc() {
 
 function uReciboEncImp(csc) {
 
-   
+
     var html;
 
     strLog = $("#recibirVariable").val();
@@ -181,7 +181,7 @@ function uReciboEncImp(csc) {
 
                         }
                     }
-                    uReciboDet(id_rec_enc,strLog);
+                    uReciboDet(id_rec_enc, strLog);
                     /*for(var a=0; a < dato.length; a++){
                      alert(dato[a]);
                      }*/
@@ -205,7 +205,7 @@ function uReciboEncImp(csc) {
 
 }
 
-function uReciboDet(strRec,usu) {
+function uReciboDet(strRec, usu) {
 
 
     //variables de entrada
@@ -275,7 +275,7 @@ function uReciboDet(strRec,usu) {
                     }
 
 
-                    formato(fecha, nom_prov, id_proveedor,usu);
+                    formato(fecha, nom_prov, id_proveedor, usu, strRec);
 
 
                     //$("#recibo").html(html);
@@ -299,8 +299,9 @@ function uReciboDet(strRec,usu) {
 }
 
 
-function formato(fechaP, proveedorP, nitP, usu) {
-
+function formato(fechaP, proveedorP, nitP, usu, recibo) {
+    var cod_usu = "Cod. Usuario: " + usu;
+    var cantidad_usu = cod_usu.length;
     var fecha = "";
     var cantidad_fecha = "";
     var salto = "                                ";
@@ -318,17 +319,33 @@ function formato(fechaP, proveedorP, nitP, usu) {
     var mensaje = "";
     var fin_mensaje = "";
     var proveedor = proveedorP;
+    var csc_rec = "Recibo: #" + recibo;
+    var cantidad_rec;
     var cantidad_proveedor = "";
-    var nit = "Nit: "+nitP;
+    var nit = "Nit: " + nitP;
     var cantidad_nit = "";
     var espacio_final;
 
-    fecha = "Fecha: "+fechaP;
+    fecha = "Fecha: " + fechaP;
     cantidad_emp = empresa.length;
     cantidad_fecha = fecha.length;
     cantidad_nit = nit.length;
     cantidad_proveedor = proveedor.length;
+    cantidad_rec = csc_rec.length;
 
+
+    while (cantidad_usu < 32) {
+
+        cod_usu = cod_usu + " ";
+
+        cantidad_usu = parseInt(cantidad_usu) + 1;
+    }
+    while (cantidad_rec < 32) {
+
+        csc_rec = csc_rec + " ";
+
+        cantidad_rec = parseInt(cantidad_rec) + 1;
+    }
 
     while (cantidad_fecha < 32) {
 
@@ -358,7 +375,7 @@ function formato(fechaP, proveedorP, nitP, usu) {
         cantidad_emp = parseInt(cantidad_emp) + 1;
     }
 
-    encabezado = emp_ini + empresa + emp_ini + " " + salto + salto + fecha + salto + nit + proveedor + salto + salto;
+    encabezado = emp_ini + empresa + emp_ini + " " + salto + salto + fecha + salto + nit + proveedor + salto + salto + csc_rec +cod_usu+ salto + salto;
 
 
 
@@ -374,9 +391,9 @@ function formato(fechaP, proveedorP, nitP, usu) {
             espacio = espacio + " ";
             cantidad = parseInt(cantidad) + 1;
         }
-        
-        espacio_final=espacio;
-        
+
+        espacio_final = espacio;
+
         mensaje = inicio + t1 + espacio + t2 + fin;
 
         fin_mensaje = fin_mensaje + mensaje;
@@ -385,8 +402,8 @@ function formato(fechaP, proveedorP, nitP, usu) {
 
     }
 
-    fin_mensaje = encabezado + fin_mensaje+espacio_final+espacio_final+espacio_final+espacio_final;
-    imprimir(fin_mensaje,usu);
+    fin_mensaje = encabezado + fin_mensaje + espacio_final + espacio_final + espacio_final + espacio_final;
+    imprimir(fin_mensaje, usu);
 
     //alert(":" + fin_mensaje);
 
@@ -394,12 +411,12 @@ function formato(fechaP, proveedorP, nitP, usu) {
 
 
 
-function imprimir(str,usu) {
+function imprimir(str, usu) {
 
 
     cordova.plugins.zbtprinter.print(str,
             function (success) {
-                location.href = '../frm/frmInicio.html?var='+usu+'$';  
+                location.href = '../frm/frmInicio.html?var=' + usu + '$';
             }, function (fail) {
         alert(fail);
     });

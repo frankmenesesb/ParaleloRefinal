@@ -3,11 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+conecctionStatus();
 var articulos = new Array();
 
 $(function () {
-    //$(".find_button").click(function () {
+ 
+resumen();
+    // });
+
+});
+
+
+function resumen(){
+    cargar();
+    //alert('entre');
+    $("#recibo").html('<tr><td>No tienes nada acumulado</td></tr>');
+       //$(".find_button").click(function () {
 var recibiendoVariable = location.search.slice( location.search.indexOf("=") + 1,location.search.indexOf("$"));
 
 
@@ -103,7 +114,7 @@ var recibiendoVariable = location.search.slice( location.search.indexOf("=") + 1
             } else {
                 //alert("Ocurrio Un error:" + jsonResp.MESSAGE);
             }
-
+            $("#dialogProgress").modal('hide');
 
         },
         error: function (jsonResp) {
@@ -111,8 +122,5 @@ var recibiendoVariable = location.search.slice( location.search.indexOf("=") + 1
         }
     });
 
-
-    // });
-
-});
+}
 

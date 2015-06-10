@@ -9,6 +9,7 @@ var articulos = new Array();
 
 
 $(function () {
+    cargar();
     var plaza = '%';
     var dataParams = {'idPlaza': plaza};
     var options = "";
@@ -46,8 +47,10 @@ $(function () {
                 } else if (jsonResp.MESSAGE === "EMPTY") {
                     alert("Error: no se encontro datos de articulos!!");
                 }
+                $("#dialogProgress").modal('hide');
             } else {
                 alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                $("#dialogProgress").modal('hide');
             }
 
 
@@ -59,13 +62,9 @@ $(function () {
 });
 
 function buscar_proveedor() {
-    //$(".find_button").click(function () {
-
-
-    //variables de entrada
-    //var strIde = $("#txtIdentificacion").val();
-
-    //variables locales
+    
+    
+    cargar();
 
     var id;
     var descripcion;
@@ -132,8 +131,11 @@ function buscar_proveedor() {
                     } else if (jsonResp.MESSAGE === "EMPTY") {
                         alert("Error: no se encontro proveedores en esta plaza!!");
                     }
+                    
+                    $("#dialogProgress").modal('hide');
                 } else {
                     alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                    $("#dialogProgress").modal('hide');
                 }
 
 

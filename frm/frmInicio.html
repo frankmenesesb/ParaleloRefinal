@@ -32,7 +32,7 @@ and open the template in the editor.
             </div>
             <div class="head-center">Mis Recibos</div>
             <div class="head-right">
-                <a class="btn glyphicon glyphicon-menu-hamburger" onclick="$('#dialogAcciones').modal('show');"></a>
+                <a class="btn boton-menu"   onclick="$('#dialogAcciones').modal('show');"></a>
             </div>
         </div>
         <div class="panel body">
@@ -55,10 +55,12 @@ and open the template in the editor.
 
                                 <table class="table" style="text-align: center;">
                                     <tr>
-                                        <td><a id="btn-pen-print" class="list-group-item pen-imp"></a></td>
+                                        <td><a id="btn-pen-print" class="list-group-item pen-imp" ></a></td>
+                                        <td><div id="btn-est-con"><a id="btn-sin-con" class="list-group-item sin-con" title="Sin Conexion"></a></div></td>
                                     </tr>
                                     <tr>
                                         <td>Por imprimir</td>
+                                        <td>Conexion</td>
 
                                     </tr>
                                 </table>
@@ -225,6 +227,34 @@ and open the template in the editor.
             </div>
         </div>
     </div>
+    
+    <div class="modal fade" id="dialogProgress" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="height: 100%; background: white;">
+            <div class="modal-dialog" style="height: 100%; background: transparent;">
+                <div class="modal-content" style="height: 100%; background: transparent;">
+                    
+                    <div class="modal-body" id="divContent" style="height: 100%; background: transparent;">
+                        
+                            
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                               <div id="progreso-pagina">
+
+                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 

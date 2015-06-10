@@ -80,10 +80,10 @@ $(function () {
                                 log = "";
                                 if ((nombre === null || nombre === "") || (id === null || id === "")) {
 
-                                    alert("Error: usuario y contraseña invalidos ");
+                                    alert("Error: usuario o contraseña invalidos ");
 
                                 } else {
-
+                                    
                                     if (tipo === 'A') {
                                          $("#dialogProgress").modal('hide');
                                         location.href = 'frm/frmMainA.html?var='+id+'$';
