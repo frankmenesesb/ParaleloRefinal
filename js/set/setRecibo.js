@@ -4,9 +4,9 @@ $(function () {
 
 
     $(".submit_button").click(function () {
-        
 
 
+        cargar();
 
         var strLog = $("#recibirVariable").val();
         var strProveedor = $("#txtProveedor").val();
@@ -41,8 +41,8 @@ $(function () {
 
         } else
         {
-            
-            
+
+
 //esta es una prueba
             $.ajax({
                 type: "POST",
@@ -53,7 +53,7 @@ $(function () {
                 cache: true,
                 success: function (jsonResp, html) {
 
-                cargar();
+                    cargar();
                     if (jsonResp.RESPONSE) {
 
                         for (x = 0; x < codArt.length; x++) {
@@ -62,19 +62,19 @@ $(function () {
 
                                 detallado(codArt[x], $("#" + codArt[x]).val());
                                 y = x;
-                                
-                                
+
+
 
                             }
-                            
-                            if(x===codArt.length){
-                                $("#dialogProgress").modal('hide');
-                            }
+
+//                            if(x===codArt.length){
+//                                $("#dialogProgress").modal('hide');
+//                            }
                         }
 
 
 
-                        
+
                         alert(jsonResp.MESSAGE);
                         if (y === canArt.length) {
 
@@ -126,7 +126,7 @@ function mensaje() {
 
 
 function ultReciboEnc() {
-
+    cargar();
 
     var html;
 
@@ -171,7 +171,7 @@ function ultReciboEnc() {
 
                         }
                     }
-                     $("#dialogProgress").modal('hide');
+                    $("#dialogProgress").modal('hide');
                     var l = confirm("Desea revisar el recibo?");
                     if (l === true) {
 
@@ -180,13 +180,15 @@ function ultReciboEnc() {
                         var r = confirm("Desea imprimir el recibo?");
                         if (r === true) {
                             uReciboEnc();
+                            location.href = '../frm/frmInicio.html?var=' + strLog + '$';
                         } else {
                             location.href = '../frm/frmInicio.html?var=' + strLog + '$';
                         }
                     }
-
+                    $("#dialogProgress").modal('hide');
                 } else if (jsonResp.MESSAGE === "EMPTY") {
                     alert("Error: Recibo no existe!!");
+                    $("#dialogProgress").modal('hide');
                 }
             } else {
                 alert("Ocurrio Un error:" + jsonResp.MESSAGE);

@@ -547,6 +547,8 @@ function motivo() {
 
     var id = $("#txtIdRecibo").val();
     var estado = $("#selEstadoRec").val();
+    var observacion=$("#txtMotivoM").val();
+    var usuario=$("#recibirVariable").val();
 
 
 
@@ -554,7 +556,7 @@ function motivo() {
     var l = confirm("Desea Anular este recibo?");
     if (l === true) {
 
-        var dataParams = {'idRecibo': id, 'estado': estado};
+        var dataParams = {'idRecibo': id, 'estado': estado, 'observacion': observacion, 'usuario': usuario};
         $.ajax({
             type: "POST",
             url: "http://refinal.frienderco.com/php/set/setUdpRec.php",

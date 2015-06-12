@@ -13,6 +13,7 @@ var id_rec_enc;
 var observacion;
 var id_usuario;
 var nombre_usuario;
+var nombre_plaza;
 var estado;
 var fecha;
 var id_proveedor;
@@ -24,7 +25,7 @@ var strLog;
 
 function uReciboEnc() {
 
-
+    cargar();
     var html;
 
     strLog = $("#recibirVariable").val();
@@ -61,6 +62,7 @@ function uReciboEnc() {
                         observacion = jsonResp.DATA[i]["observacion"];
                         id_usuario = jsonResp.DATA[i]["id_usuario"];
                         nombre_usuario = jsonResp.DATA[i]["nombre_usuario"];
+                        nombre_plaza = jsonResp.DATA[i]["nom_plaza"];
                         estado = jsonResp.DATA[i]["estado"];
                         fecha = jsonResp.DATA[i]["fecha"];
                         id_proveedor = jsonResp.DATA[i]["id_proveedor"];
@@ -80,13 +82,6 @@ function uReciboEnc() {
 
 
 
-                            //articulos.add(id);
-
-
-
-
-
-
                         }
                     }
                     uReciboDet(id_rec_enc, strLog);
@@ -99,6 +94,8 @@ function uReciboEnc() {
                 } else if (jsonResp.MESSAGE === "EMPTY") {
                     alert("Error: Recibo no existe!!");
                 }
+                
+                $("#dialogProgress").modal('hide');
             } else {
                 alert("Ocurrio Un error:" + jsonResp.MESSAGE);
             }
@@ -113,9 +110,15 @@ function uReciboEnc() {
 
 }
 
+function imprimirG(){
+    
+    var csc=$('#txtIdRecibo').val();
+    //alert(csc);
+    uReciboEncImp(csc);
+}
 
 function uReciboEncImp(csc) {
-
+cargar();
 
     var html;
 
@@ -191,6 +194,8 @@ function uReciboEncImp(csc) {
                 } else if (jsonResp.MESSAGE === "EMPTY") {
                     alert("Error: Recibo no existe!!");
                 }
+                
+                
             } else {
                 alert("Ocurrio Un error:" + jsonResp.MESSAGE);
             }
@@ -207,7 +212,7 @@ function uReciboEncImp(csc) {
 
 function uReciboDet(strRec, usu) {
 
-
+    
     //variables de entrada
     //var strIde = $("#txtIdentificacion").val();
 
@@ -274,8 +279,8 @@ function uReciboDet(strRec, usu) {
                         }
                     }
 
-
-                    formato(fecha, nom_prov, id_proveedor, usu, strRec);
+                   
+                    formato(fecha, nom_prov, id_proveedor, usu, strRec,nombre_usuario,nombre_plaza);
 
 
                     //$("#recibo").html(html);
@@ -299,7 +304,7 @@ function uReciboDet(strRec, usu) {
 }
 
 
-function formato(fechaP, proveedorP, nitP, usu, recibo) {
+function formato(fechaP, proveedorP, nitP, usu, recibo, nom_usuario,nom_plaza) {
     var cod_usu = "Cod. Usuario: " + usu;
     var cantidad_usu = cod_usu.length;
     var fecha = "";
@@ -325,6 +330,10 @@ function formato(fechaP, proveedorP, nitP, usu, recibo) {
     var nit = "Nit: " + nitP;
     var cantidad_nit = "";
     var espacio_final;
+    var nombre_u=""+nom_usuario;
+    var cantidad_nom_u;
+    var nombre_p=""+nom_plaza;
+    var cantidad_nom_p;
 
     fecha = "Fecha: " + fechaP;
     cantidad_emp = empresa.length;
@@ -332,8 +341,24 @@ function formato(fechaP, proveedorP, nitP, usu, recibo) {
     cantidad_nit = nit.length;
     cantidad_proveedor = proveedor.length;
     cantidad_rec = csc_rec.length;
+    cantidad_nom_u=nombre_u.length;
+    cantidad_nom_p=nombre_p.length;
+    
+    while (cantidad_nom_p < 32) {
 
+        nombre_p = nombre_p + " ";
 
+        cantidad_nom_p = parseInt(cantidad_nom_p) + 1;
+    }
+    
+    while (cantidad_nom_u < 32) {
+
+        nombre_u = nombre_u + " ";
+
+        cantidad_nom_u = parseInt(cantidad_nom_u) + 1;
+    }
+    
+    
     while (cantidad_usu < 32) {
 
         cod_usu = cod_usu + " ";
@@ -375,7 +400,7 @@ function formato(fechaP, proveedorP, nitP, usu, recibo) {
         cantidad_emp = parseInt(cantidad_emp) + 1;
     }
 
-    encabezado = emp_ini + empresa + emp_ini + " " + salto + salto + fecha + salto + nit + proveedor + salto + salto + csc_rec +cod_usu+ salto + salto;
+    encabezado = emp_ini + empresa + emp_ini + " " + salto + salto + fecha + salto + nit + proveedor + salto + salto + csc_rec +cod_usu+nombre_u+nombre_p+ salto + salto;
 
 
 
@@ -416,8 +441,14 @@ function imprimir(str, usu) {
 
     cordova.plugins.zbtprinter.print(str,
             function (success) {
+                $("#dialogProgress").modal('hide');
                 location.href = '../frm/frmInicio.html?var=' + usu + '$';
             }, function (fail) {
-        alert(fail);
+                
+                $("#dialogProgress").modal('hide');
+                if(fail!==null || fail!==""){
+                    alert("Error conexion por favor reinicie la impresora, y reinicie el bluethooth de su celular");
+                }
+        //alert(fail);
     });
 }

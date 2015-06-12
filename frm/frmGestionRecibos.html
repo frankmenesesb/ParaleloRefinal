@@ -23,7 +23,14 @@ and open the template in the editor.
         <script src="../js/get/getURecibo.js"></script>
         <script src="../js/get/getArticulosG.js"></script>
         <script src="../js/get/getRecibosG.js"></script>
-        <script src="../js/util/printplugin.js"></script>        
+        <script src="../js/util/printplugin.js"></script>
+        <script type="text/javascript" src="../cordova.js"></script>
+        <script type="text/javascript" src="../cordova_plugins.js"></script>
+        <script type="text/javascript" charset="utf-8" 
+        src="../plugins/it.zenitlab.cordova.plugins.zbtprinter/www/zbtprinter.js"></script>
+        <script type="text/javascript" charset="utf-8" 
+        src="../plugins/com.randdusing.bluetoothle/www/bluetoothle.js"></script>
+        <script type="text/javascript" src="../js/util/conexion.js"></script>
     </head>
     <body>
     <center>
@@ -129,7 +136,7 @@ and open the template in the editor.
                                             
                                         </li>
                                         <li >
-                                            <a class="btn boton-imprimir-rec-edit" onclick="uReciboEncImp($('#txtIdRecibo').val());"></a>
+                                            <a class="btn boton-imprimir-rec-edit" onclick="imprimirG();"></a>
                                         </li>
                                     </ul>
 

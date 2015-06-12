@@ -1,7 +1,7 @@
 
 
 function detallado(articulo, cantidad) {
-
+    
     var strArt = articulo;
     var strCan = cantidad;
     var dataString = {'articulo': strArt, 'cantidad': strCan};
