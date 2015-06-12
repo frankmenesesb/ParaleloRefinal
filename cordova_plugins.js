@@ -12,7 +12,7 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "it.zenitlab.cordova.plugins.zbtprinter": "1.0"
-}
+};
 // BOTTOM OF METADATA
 });
 

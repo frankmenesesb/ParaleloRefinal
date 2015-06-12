@@ -437,8 +437,10 @@ function formato(fechaP, proveedorP, nitP, usu, recibo, nom_usuario,nom_plaza) {
 
 
 function imprimir(str, usu) {
-
-
+    
+    //var cadena ="! 0 200 200 200 1 ENCODING UTF-8 TEXT 0 20 30 r/n/ PRINTr/n/";
+    //var ca="^XA^FO10,10^AFN,26,13^FDHello, World!^FS^XZ";
+    //str=str+cadena;
     cordova.plugins.zbtprinter.print(str,
             function (success) {
                 $("#dialogProgress").modal('hide');

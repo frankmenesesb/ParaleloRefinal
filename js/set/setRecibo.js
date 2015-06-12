@@ -32,11 +32,13 @@ $(function () {
         if (strLog === '') {
 
             alert("No has iniciado sesion correctamente :)..");
+            $("#dialogProgress").modal('hide');
 
 
         } else if (can_totales === '' || can_totales === null || can_totales === 0 || can_totales === '0') {
 
             alert("No puedes guardar un recibo con todas las cantidades en 0 (cero). -->" + can_totales);
+            $("#dialogProgress").modal('hide');
 
 
         } else
