@@ -24,7 +24,7 @@ var strLog;
 
 
 function uReciboEnc() {
-
+    
     cargar();
     var html;
 
@@ -211,7 +211,8 @@ cargar();
 }
 
 function uReciboDet(strRec, usu) {
-
+    des = [];
+    can = [];
     
     //variables de entrada
     //var strIde = $("#txtIdentificacion").val();
@@ -441,6 +442,8 @@ function imprimir(str, usu) {
     //var cadena ="! 0 200 200 200 1 ENCODING UTF-8 TEXT 0 20 30 r/n/ PRINTr/n/";
     //var ca="^XA^FO10,10^AFN,26,13^FDHello, World!^FS^XZ";
     //str=str+cadena;
+    
+    
     cordova.plugins.zbtprinter.print(str,
             function (success) {
                 $("#dialogProgress").modal('hide');
@@ -454,3 +457,232 @@ function imprimir(str, usu) {
         //alert(fail);
     });
 }
+
+
+//function formatoEntrega(fechaP, usu, nom_usuario,nom_plaza, placa) {
+//    var cod_usu = "Cod. Usuario: " + usu;
+//    var cantidad_usu = cod_usu.length;
+//    var fecha = "";
+//    var cantidad_fecha = "";
+//    var salto = "                                ";
+//    var t1 = "";
+//    var t2 = "";
+//    var cantidad = "";
+//    var emp_ini = " ";
+//    var emp_fin = " ";
+//    var empresa = "REFINAL";
+//    var encabezado = "";
+//    var cantidad_emp = "";
+//    var inicio = " ";
+//    var fin = " ";
+//    var espacio = "";
+//    var mensaje = "";
+//    var fin_mensaje = "";
+//    var n_placa="Placa: "+placa;
+//    var cantidad_placa;
+//    
+//    
+//    
+//    
+//    
+//    var espacio_final;
+//    var nombre_u=""+nom_usuario;
+//    var cantidad_nom_u;
+//    var nombre_p=""+nom_plaza;
+//    var cantidad_nom_p;
+//
+//    fecha = "Fecha: " + fechaP;
+//    cantidad_emp = empresa.length;
+//    cantidad_fecha = fecha.length;
+//    cantidad_placa = n_placa.length;
+//    
+//    
+//    
+//    cantidad_nom_u=nombre_u.length;
+//    cantidad_nom_p=nombre_p.length;
+//    
+//    while (cantidad_placa < 32) {
+//
+//        n_placa = n_placa + " ";
+//
+//        cantidad_placa = parseInt(cantidad_placa) + 1;
+//    }
+//    
+//    while (cantidad_nom_p < 32) {
+//
+//        nombre_p = nombre_p + " ";
+//
+//        cantidad_nom_p = parseInt(cantidad_nom_p) + 1;
+//    }
+//    
+//    while (cantidad_nom_u < 32) {
+//
+//        nombre_u = nombre_u + " ";
+//
+//        cantidad_nom_u = parseInt(cantidad_nom_u) + 1;
+//    }
+//    
+//    
+//    while (cantidad_usu < 32) {
+//
+//        cod_usu = cod_usu + " ";
+//
+//        cantidad_usu = parseInt(cantidad_usu) + 1;
+//    }
+//    
+//
+//    while (cantidad_fecha < 32) {
+//
+//        fecha = fecha + " ";
+//
+//        cantidad_fecha = parseInt(cantidad_fecha) + 1;
+//    }
+//
+//    
+//
+//    
+//
+//    while (cantidad_emp < 18) {
+//
+//        emp_ini = emp_ini + " ";
+//
+//        cantidad_emp = parseInt(cantidad_emp) + 1;
+//    }
+//
+//    encabezado = emp_ini + empresa + emp_ini + " " + salto + salto + fecha + salto + salto +n_placa+ salto +cod_usu+nombre_u+nombre_p+ salto + salto;
+//
+//
+//
+//    for (i = 0; i < des.length; i++) {
+//        t1 = des[i];
+//        t1 = t1.toString();
+//        t2 = can[i];
+//        t2 = t2.toString();
+//        cantidad = t1.length + t2.length;
+//
+//        while (cantidad < 32 - (inicio.length + fin.length)) {
+//
+//            espacio = espacio + " ";
+//            cantidad = parseInt(cantidad) + 1;
+//        }
+//
+//        espacio_final = espacio;
+//
+//        mensaje = inicio + t1 + espacio + t2 + fin;
+//
+//        fin_mensaje = fin_mensaje + mensaje;
+//        espacio = "";
+//        cantidad = "";
+//
+//    }
+//
+//    fin_mensaje = encabezado + fin_mensaje + espacio_final + espacio_final + espacio_final + espacio_final;
+//    
+//    alert(fin_mensaje);
+//    //imprimir(fin_mensaje, usu);
+//
+//    
+//
+//}
+
+
+//function resumen_entrega(){
+//    des = [];
+//    can = [];
+//    cargar();
+//    var placa=$("#txtPlaca").val();
+//    //alert('entre');
+//    //$("#recibo").html('<tr><td>No tienes nada acumulado</td></tr>');
+//       //$(".find_button").click(function () {
+//var recibiendoVariable = location.search.slice( location.search.indexOf("=") + 1,location.search.indexOf("$"));
+//
+//
+//
+////document.getElementById("recibirVariable").innerHTML = recibiendoVariable;
+//
+//    titleHeader = $(".panel-heading").find("h4").text();
+//    $("#recibirVariable").val(recibiendoVariable);
+//
+//    //variables de entrada
+//    var strLog = $("#recibirVariable").val();
+//
+//    //variables locales
+//    var fecha_entrega;
+//    var cantidad;
+//    var descripcion;
+//    var nombre_de_usuario;
+//    var imagen;
+//    var html;
+//
+//    var dataString = {'usuario': strLog};
+//
+//
+//    $.ajax({
+//        type: 'POST',
+//        data: dataString,
+//        dataType: 'json',
+//        url: "http://refinal.frienderco.com/php/get/getArticulosResumen.php",
+//        //url: "../php/get/getArticulos.php",
+//        success: function (jsonResp) {
+//
+//            if (jsonResp.RESPONSE) {
+//
+//
+//                if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
+//
+//                    alert('Error no hay articulos!!');
+//                }
+//                if (jsonResp.MESSAGE === "") {
+//
+//
+//
+//                    for (var i = 0; i < jsonResp.DATA.length; i++) {
+//
+//
+//
+//
+//                        cantidad = jsonResp.DATA[i]["can_res"];
+//                        descripcion = jsonResp.DATA[i]["descripcion"];
+//                        nombre_de_usuario = jsonResp.DATA[i]["nom_usuario"]; 
+//                        fecha_entrega = jsonResp.DATA[i]["fecha"]; 
+//                        //imagen = jsonResp.DATA[i]["imagen"];
+//                        
+//                        
+//
+//
+//
+//                        var log = "";
+//                        if ((descripcion === null || descripcion === "") || (can === null || can=== "")) {
+//
+//                            //alert("Error: articulos con errores o sin existencia ");
+//
+//                        } else {
+//
+//
+//
+//                            des.push(descripcion);
+//                            can.push(cantidad);
+//                            
+//                          
+//
+//                        }
+//                    }
+//                    
+//                    
+//                    formatoEntrega(fecha_entrega,strLog, nombre_de_usuario,'',placa); 
+//
+//                } else if (jsonResp.MESSAGE === "EMPTY") {
+//                    //alert("Error: no se encontro datos de articulos!!");
+//                }
+//            } else {
+//                //alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+//            }
+//            $("#dialogProgress").modal('hide');
+//
+//        },
+//        error: function (jsonResp) {
+//            alert("Ocurrio Un error");
+//        }
+//    });
+//
+//}
