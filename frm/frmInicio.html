@@ -16,9 +16,11 @@ and open the template in the editor.
         <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
         <!-- Latest compiled and minified JavaScript -->
         <script src="../js/util/jquery-2.1.3.min.js"></script>
-        
+       
         <script src="../js/util/bootstrap.min.js"></script>
         <script src="../js/util/main.js"></script>
+         <script src="../dist/sweetalert.min.js"></script> 
+        <link rel="stylesheet" type="text/css" href="../dist/sweetalert.css">
         <script src="../js/get/getArticulosResumen.js"></script>
         <script src="../js/set/setEntrega.js"></script>
         
@@ -29,7 +31,9 @@ and open the template in the editor.
         src="../plugins/it.zenitlab.cordova.plugins.zbtprinter/www/zbtprinter.js"></script>
         <script type="text/javascript" charset="utf-8" 
         src="../plugins/com.randdusing.bluetoothle/www/bluetoothle.js"></script>
-        <script type="text/javascript" src="../js/util/conexion.js"></script>
+        <script type="text/javascript" charset="utf-8" 
+        src="../plugins/com.randdusing.bluetoothle/www/conexion.js"></script>
+        
         
         
 
@@ -48,10 +52,10 @@ and open the template in the editor.
             </div>
         </div>
         <div class="panel body">
-            <br>
-            <br>
+            
+            
             <div class="margen">
-                <br>
+                
                 <div class="movil">
                     <div>
                         <ul class="list-group" >
@@ -67,11 +71,11 @@ and open the template in the editor.
 
                                 <table class="table" style="text-align: center;">
                                     <tr>
-                                        <td><a id="btn-pen-print" class="list-group-item pen-imp" ></a></td>
+                                        <td><a id="btn-pen-print" class="list-group-item pen-imp" onclick="startScan();"></a></td>
                                         <td><div id="btn-est-con"><a id="btn-sin-con" class="list-group-item sin-con" title="Sin Conexion"></a></div></td>
                                     </tr>
                                     <tr>
-                                        <td>Por imprimir</td>
+                                        <td>Impresora</td>
                                         <td>Conexion</td>
 
                                     </tr>
@@ -82,7 +86,7 @@ and open the template in the editor.
                 </div>
             </div>
             <div class="margen">
-                <br>
+                
                 <div class="movil">
                     <div>
                         <ul class="list-group" style="">
@@ -241,33 +245,26 @@ and open the template in the editor.
     </div>
     
     <div class="modal fade" id="dialogProgress" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="height: 100%; background: white;">
-            <div class="modal-dialog" style="height: 100%; background: transparent;">
-                <div class="modal-content" style="height: 100%; background: transparent;">
-                    
-                    <div class="modal-body" id="divContent" style="height: 100%; background: transparent;">
-                        
-                            
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                               <div id="progreso-pagina">
+            <div class="modal-dialog" style="height: 100%; background: white;">
+                <div class="modal-content" style="height: 100%; background: white;">
 
-                              
+                    <div class="modal-body" id="divContent" style="height: 100%; background: white;">
+
+
+                        <div>
+                            <img src="images/refinal-app.png" alt="" >
+                        </div>
+                        <br>
+                        <br>
+                        
+                        <div id="progreso-pagina">
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
 
 </body>

@@ -163,9 +163,9 @@ function conecctionStatus() {
         success: function (jsonResp, html) {
 
             if (jsonResp.RESPONSE) {
-                $("#btn-est-con").html('<a id="btn-con-con" class="list-group-item con-con" title="Conexion Correcta" onclick="alert(\'Conexion Correcta\');" ></a>');
+                $("#btn-est-con").html('<a id="btn-con-con" class="list-group-item con-con" title="Conexion Correcta" onclick="msn_conexion(\'S\');" ></a>');
             } else {
-                $("#btn-est-con").html('<a id="btn-sin-con" class="list-group-item sin-con" title="Sin Conexion" onclick="alert(\'Sin Conexion\');"></a>');
+                $("#btn-est-con").html('<a id="btn-sin-con" class="list-group-item sin-con" title="Sin Conexion" onclick="msn_conexion(\'N\');"></a>');
             }
 
         }
@@ -177,4 +177,14 @@ function conecctionStatus() {
 
     setTimeout("conecctionStatus()", 10000);
 
+}
+
+function msn_conexion(estado){
+    
+//alert('entro con '+estado);
+   if (estado==="S"){
+       swal("Estado Conexion!", "Estable");
+   } else{
+       swal("Estado Conexion!", "No hay conexion.");
+   }
 }

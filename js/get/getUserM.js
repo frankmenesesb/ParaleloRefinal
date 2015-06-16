@@ -45,7 +45,7 @@ if (operacion ==='M'){
 
                         if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                            alert('Error Usuario no registrado!!');
+                            swal('Mensaje!', 'Error Usuario no registrado!!');
                         }
                         if (jsonResp.MESSAGE === "") {
 
@@ -74,7 +74,7 @@ if (operacion ==='M'){
                                 var log = "";
                                 if ((nombre === null || nombre === "") || (id === null || id === "")) {
 
-                                    alert("Error: usuario y contraseña invalidos ");
+                                    swal("Mensaje!", "Error: usuario y contraseña invalidos ");
 
                                 } else {
 
@@ -85,16 +85,16 @@ if (operacion ==='M'){
                             //$("#txtHint").html(encabezado+html+final);
 
                         } else if (jsonResp.MESSAGE === "EMPTY") {
-                            alert("Error: no se encontro datos de registro del usuario!!");
+                            swal("Mensaje!", "Error: no se encontro datos de registro del usuario!!");
                         }
                     } else {
-                        alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                        swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
                     }
 
 
                 },
                 error: function (jsonResp) {
-                    alert("Ocurrio Un error");
+                    swal("Mensaje!", "Ocurrio Un error");
                 }
             });
         

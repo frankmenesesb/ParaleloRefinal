@@ -23,19 +23,19 @@ function detallado(articulo, cantidad) {
 
                 if (jsonResp.MESSAGE === "") {
 
-                    alert('XD');
+                    swal('Mensaje!', 'XD');
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("No se encontraron datos");
+                    swal("Mensaje!", "No se encontraron datos");
                 }
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
         }
         ,
         error: function (jsonResp) {
-            alert("Ocurrio Un error Diferente");
+            swal("Mensaje!", "Ocurrio Un error Diferente");
         }
     });
 

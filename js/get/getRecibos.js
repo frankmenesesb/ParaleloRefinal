@@ -124,7 +124,7 @@ function getAllRecibos() {
                         }
                         /*var log = "";
                          if ((descripcion === null || descripcion === "") || (id === null || id === "")) {
-                         alert("Error: articulos con errores o sin existencia ");
+                         swal("Mensaje!", "Error: articulos con errores o sin existencia ");
                          } else {*/
 
 
@@ -194,15 +194,15 @@ function getAllRecibos() {
                     });
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: no se encontro datos de registro del usuario!!");
+                    swal("Mensaje!", "Error: no se encontro datos de registro del usuario!!");
                 }
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
     });
 
@@ -353,15 +353,15 @@ function getRecibo(jsonParams) {
 
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: no se encontro datos de registro del usuario!!");
+                    swal("Mensaje!", "Error: no se encontro datos de registro del usuario!!");
                 }
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
     });
 
@@ -432,14 +432,14 @@ function setUpdRecPen(arrayPendientes) {
 
 
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
         }
         ,
         error: function (jsonResp) {
-            //alert("Ocurrio Un error Diferente");
-            alert("Falta hacer el update que cambie el estado a las facturas de pendientes a generadas");
+            //swal("Mensaje!", "Ocurrio Un error Diferente");
+            swal("Mensaje!", "Falta hacer el update que cambie el estado a las facturas de pendientes a generadas");
         }
     });
 }
@@ -460,13 +460,13 @@ function generarArchivoPlano(arrayRecibos) {
                 descargarArchivo(generarTexto(jsonResp.DATA), 'archivo.txt');
 
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
         }
         ,
         error: function (jsonResp) {
-            alert("Ocurrio Un error Diferente");
+            swal("Mensaje!", "Ocurrio Un error Diferente");
         }
     });
 
@@ -543,13 +543,13 @@ function updRecibo(jsonParams) {
                     //descargarArchivo(generarTexto(jsonResp.DATA), 'archivo.txt');
 
                 } else {
-                    alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                    swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
                 }
 
             }
             ,
             error: function (jsonResp) {
-                alert("Ocurrio Un error Diferente");
+                swal("Mensaje!", "Ocurrio Un error Diferente");
             }
         });
     });

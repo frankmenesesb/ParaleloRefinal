@@ -54,7 +54,7 @@ $(function () {
 
                 if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                    alert('Error no hay articulos!!');
+                    swal('Mensaje!', 'Error no hay articulos!!');
                 }
                 if (jsonResp.MESSAGE === "") {
 
@@ -74,7 +74,7 @@ $(function () {
                         var log = "";
                         if ((descripcion === null || descripcion === "") || (cantidad === null || cantidad === "")) {
 
-                            alert("Error: articulos con errores o sin existencia ");
+                            swal("Mensaje!", "Error: articulos con errores o sin existencia ");
 
                         } else {
 
@@ -104,16 +104,16 @@ $(function () {
                     //$("#txtHint").html(encabezado+html+final);
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: no se encontro datos de articulos!!");
+                    swal("Mensaje!", "Error: no se encontro datos de articulos!!");
                 }
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
     });
 

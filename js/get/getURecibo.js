@@ -46,7 +46,7 @@ function uReciboEnc() {
 
                 if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                    alert('No hay recibos para este usuario!!');
+                    swal('Mensaje!', 'No hay recibos para este usuario!!');
                 }
                 if (jsonResp.MESSAGE === "") {
 
@@ -75,7 +75,7 @@ function uReciboEnc() {
                         var log = "";
                         if ((id_rec_enc === null || id_rec_enc === "") || (id_usuario === null || id_usuario === "")) {
 
-                            alert("Error al traer recibo");
+                            swal("Mensaje!", "Error al traer recibo");
 
                         } else {
 
@@ -92,18 +92,18 @@ function uReciboEnc() {
                     //$("#txtHint").html(encabezado+html+final);
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: Recibo no existe!!");
+                    swal("Mensaje!", "Error: Recibo no existe!!");
                 }
                 
                 $("#dialogProgress").modal('hide');
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
     });
 
@@ -140,7 +140,7 @@ cargar();
 
                 if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                    alert('No hay recibos para este usuario!!');
+                    swal('Mensaje!', 'No hay recibos para este usuario!!');
                 }
                 if (jsonResp.MESSAGE === "") {
 
@@ -168,7 +168,7 @@ cargar();
                         var log = "";
                         if ((id_rec_enc === null || id_rec_enc === "") || (id_usuario === null || id_usuario === "")) {
 
-                            alert("Error al traer recibo");
+                            swal("Mensaje!", "Error al traer recibo");
 
                         } else {
 
@@ -192,18 +192,18 @@ cargar();
                     //$("#txtHint").html(encabezado+html+final);
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: Recibo no existe!!");
+                    swal("Mensaje!", "Error: Recibo no existe!!");
                 }
                 
                 
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
     });
 
@@ -241,7 +241,7 @@ function uReciboDet(strRec, usu) {
 
                 if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                    alert('Error no hay articulos!!');
+                    swal('Mensaje!', 'Error no hay articulos!!');
                 }
                 if (jsonResp.MESSAGE === "") {
 
@@ -261,7 +261,7 @@ function uReciboDet(strRec, usu) {
                         var log = "";
                         if ((descripcion === null || descripcion === "") || (cantidad === null || cantidad === "")) {
 
-                            alert("Error: articulos con errores o sin existencia ");
+                            swal("Mensaje!", "Error: articulos con errores o sin existencia ");
 
                         } else {
 
@@ -288,16 +288,16 @@ function uReciboDet(strRec, usu) {
                     //$("#txtHint").html(encabezado+html+final);
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: no se encontro datos de articulos!!");
+                    swal("Mensaje!", "Error: no se encontro datos de articulos!!");
                 }
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
     });
 
@@ -431,7 +431,7 @@ function formato(fechaP, proveedorP, nitP, usu, recibo, nom_usuario,nom_plaza) {
     fin_mensaje = encabezado + fin_mensaje + espacio_final + espacio_final + espacio_final + espacio_final;
     imprimir(fin_mensaje, usu);
 
-    //alert(":" + fin_mensaje);
+    //swal("Mensaje!", ":" + fin_mensaje);
 
 }
 
@@ -439,9 +439,9 @@ function formato(fechaP, proveedorP, nitP, usu, recibo, nom_usuario,nom_plaza) {
 
 function imprimir(str, usu) {
     
-    //var cadena ="! 0 200 200 200 1 ENCODING UTF-8 TEXT 0 20 30 r/n/ PRINTr/n/";
+    var cadena ="! 0 200 200 200 1 ENCODING UTF-8 TEXT 0 20 30 r/n/ PRINTr/n/";
     //var ca="^XA^FO10,10^AFN,26,13^FDHello, World!^FS^XZ";
-    //str=str+cadena;
+    str=str+cadena;
     
     
     cordova.plugins.zbtprinter.print(str,
@@ -452,7 +452,8 @@ function imprimir(str, usu) {
                 
                 $("#dialogProgress").modal('hide');
                 if(fail!==null || fail!==""){
-                    alert("Error conexion por favor reinicie la impresora, y reinicie el bluethooth de su celular");
+                    //swal("Mensaje!", "Error conexion por favor reinicie la impresora, y reinicie el bluethooth de su celular");
+                    swal("Mensaje!", fail);
                 }
         //alert(fail);
     });
@@ -591,7 +592,7 @@ function imprimir(str, usu) {
 //    can = [];
 //    cargar();
 //    var placa=$("#txtPlaca").val();
-//    //alert('entre');
+//    //swal('Mensaje!', 'entre');
 //    //$("#recibo").html('<tr><td>No tienes nada acumulado</td></tr>');
 //       //$(".find_button").click(function () {
 //var recibiendoVariable = location.search.slice( location.search.indexOf("=") + 1,location.search.indexOf("$"));
@@ -630,7 +631,7 @@ function imprimir(str, usu) {
 //
 //                if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 //
-//                    alert('Error no hay articulos!!');
+//                    swal('Mensaje!', 'Error no hay articulos!!');
 //                }
 //                if (jsonResp.MESSAGE === "") {
 //
@@ -654,7 +655,7 @@ function imprimir(str, usu) {
 //                        var log = "";
 //                        if ((descripcion === null || descripcion === "") || (can === null || can=== "")) {
 //
-//                            //alert("Error: articulos con errores o sin existencia ");
+//                            //swal("Mensaje!", "Error: articulos con errores o sin existencia ");
 //
 //                        } else {
 //
@@ -672,16 +673,16 @@ function imprimir(str, usu) {
 //                    formatoEntrega(fecha_entrega,strLog, nombre_de_usuario,'',placa); 
 //
 //                } else if (jsonResp.MESSAGE === "EMPTY") {
-//                    //alert("Error: no se encontro datos de articulos!!");
+//                    //swal("Mensaje!", "Error: no se encontro datos de articulos!!");
 //                }
 //            } else {
-//                //alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+//                //swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
 //            }
 //            $("#dialogProgress").modal('hide');
 //
 //        },
 //        error: function (jsonResp) {
-//            alert("Ocurrio Un error");
+//            swal("Mensaje!", "Ocurrio Un error");
 //        }
 //    });
 //

@@ -31,13 +31,15 @@ $(function () {
 
         if (strLog === '') {
 
-            alert("No has iniciado sesion correctamente :)..");
+            swal("Mensaje!", "No has iniciado sesion correctamente :)..");
             $("#dialogProgress").modal('hide');
 
 
         } else if (can_totales === '' || can_totales === null || can_totales === 0 || can_totales === '0') {
 
-            alert("No puedes guardar un recibo con todas las cantidades en 0 (cero). -->" + can_totales);
+            //swal("Mensaje!", No puedes guardar un recibo con todas las cantidades en 0 (cero). -->" + can_totales);
+            swal("Mensaje!", "No puedes guardar un recibo con todas las cantidades en 0 (cero). " + can_totales);
+
             $("#dialogProgress").modal('hide');
 
 
@@ -77,7 +79,7 @@ $(function () {
 
 
 
-                        alert(jsonResp.MESSAGE);
+                        swal("Mensaje!", jsonResp.MESSAGE);
                         if (y === canArt.length) {
 
                             var html = "Se guardo Correctamente!";
@@ -94,19 +96,19 @@ $(function () {
                         ultReciboEnc();
                         if (jsonResp.MESSAGE === "") {
 
-                            alert('XD');
+                            swal('Mensaje!', 'XD');
 
                         } else if (jsonResp.MESSAGE === "EMPTY") {
-                            alert("No se encontraron datos");
+                            swal("Mensaje!", "No se encontraron datos");
                         }
                     } else {
-                        alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                        swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
                     }
 
                 }
                 ,
                 error: function (jsonResp) {
-                    alert("Ocurrio Un error Diferente");
+                    swal("Mensaje!", "Ocurrio Un error Diferente");
                 }
             });
         }
@@ -150,7 +152,7 @@ function ultReciboEnc() {
 
                 if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                    alert('No hay recibos para este usuario!!');
+                    swal('Mensaje!', 'No hay recibos para este usuario!!');
                 }
                 if (jsonResp.MESSAGE === "") {
 
@@ -166,7 +168,7 @@ function ultReciboEnc() {
                         var log = "";
                         if ((id_rec_enc === null || id_rec_enc === "")) {
 
-                            alert("Error al traer recibo");
+                            swal("Mensaje!", "Error al traer recibo");
 
                         } else {
 
@@ -174,32 +176,71 @@ function ultReciboEnc() {
                         }
                     }
                     $("#dialogProgress").modal('hide');
-                    var l = confirm("Desea revisar el recibo?");
-                    if (l === true) {
 
-                        location.href = '../frm/frmReciboBuscar.html?var=' + strLog + '$' + id_rec_enc + '*';
-                    } else {
-                        var r = confirm("Desea imprimir el recibo?");
-                        if (r === true) {
+
+
+                    swal({title: "Esta seguro?",
+                        text: "Desea revisar el recibo?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Si",
+                        cancelButtonText: "No",
+                        closeOnConfirm: false,
+                        closeOnCancel: false},
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            location.href = '../frm/frmReciboBuscar.html?var=' + strLog + '$' + id_rec_enc + '*';
+                        } else {
+                            swal({title: "Esta seguro?",
+                        text: "Desea imprimir el recibo?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Si",
+                        cancelButtonText: "No",
+                        closeOnConfirm: false,
+                        closeOnCancel: false},
+                    function (isConfirm) {
+                        if (isConfirm) {
                             uReciboEnc();
                             location.href = '../frm/frmInicio.html?var=' + strLog + '$';
                         } else {
                             location.href = '../frm/frmInicio.html?var=' + strLog + '$';
                         }
-                    }
+                    });
+                        }
+                    });
+
+//                    var l = confirm("Desea revisar el recibo?");
+//                    if (l === true) {
+//
+//                        location.href = '../frm/frmReciboBuscar.html?var=' + strLog + '$' + id_rec_enc + '*';
+//                    } else {
+//                        var r = confirm("Desea imprimir el recibo?");
+//                        if (r === true) {
+//                            uReciboEnc();
+//                            location.href = '../frm/frmInicio.html?var=' + strLog + '$';
+//                        } else {
+//                            location.href = '../frm/frmInicio.html?var=' + strLog + '$';
+//                        }
+//                    }
+
+
+
                     $("#dialogProgress").modal('hide');
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: Recibo no existe!!");
+                    swal("Mensaje!", "Error: Recibo no existe!!");
                     $("#dialogProgress").modal('hide');
                 }
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
     });
 

@@ -149,7 +149,7 @@ function getAllRecibos() {
                         if (pageName === "frmGestionRecibos.html") {
                             html += '<td style="width: 20%;">';
                             html += "<a id='btnUpdRec_" + i + "' onclick='updRecibo(\"" + id_rec_enc + "\",\"" + estado + "\",\"" + fecha + "\");'><span style='background-size: 38px; height: 38px; background-image: url(\"../images/btn-editar.png\"); display:block; background-repeat: no-repeat;' ></span></a>";
-                            //alert("<a id='btnUpdRec_" + i + "' onclick='updRecibo(" + id_rec_enc + ");'><span style='background-size: 110px; height: 35px; background-image: url(\"../images/btn-editar-0.png\"); display:block; background-repeat: no-repeat;' ></span></a>");
+                            //swal("Mensaje!", "<a id='btnUpdRec_" + i + "' onclick='updRecibo(" + id_rec_enc + ");'><span style='background-size: 110px; height: 35px; background-image: url(\"../images/btn-editar-0.png\"); display:block; background-repeat: no-repeat;' ></span></a>");
                             html += '</td>';
                         }
                         html += '</tr>';
@@ -185,15 +185,15 @@ function getAllRecibos() {
                     });
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: no se encontro datos de registro del usuario!!");
+                    swal("Mensaje!", "Error: no se encontro datos de registro del usuario!!");
                 }
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
 
 
@@ -347,15 +347,15 @@ function getRecibo(jsonParams) {
 
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: no se encontro datos de registro del usuario!!");
+                    swal("Mensaje!", "Error: no se encontro datos de registro del usuario!!");
                 }
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
     });
 
@@ -426,14 +426,14 @@ function setUpdRecPen(arrayPendientes) {
 
 
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
         }
         ,
         error: function (jsonResp) {
-            //alert("Ocurrio Un error Diferente");
-            alert("Falta hacer el update que cambie el estado a las facturas de pendientes a generadas");
+            //swal("Mensaje!", "Ocurrio Un error Diferente");
+            swal("Mensaje!", "Falta hacer el update que cambie el estado a las facturas de pendientes a generadas");
         }
     });
 }
@@ -454,13 +454,13 @@ function generarArchivoPlano(arrayRecibos) {
                 descargarArchivo(generarTexto(jsonResp.DATA), 'archivo.txt');
 
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
         }
         ,
         error: function (jsonResp) {
-            alert("Ocurrio Un error Diferente");
+            swal("Mensaje!", "Ocurrio Un error Diferente");
         }
     });
 
@@ -536,7 +536,7 @@ $(function () {
         $('#dialogUpdReciboMotivo').modal('show');
         //motivo(id);
         //setUdpRec
-        
+
 
 
     });
@@ -547,45 +547,88 @@ function motivo() {
 
     var id = $("#txtIdRecibo").val();
     var estado = $("#selEstadoRec").val();
-    var observacion=$("#txtMotivoM").val();
-    var usuario=$("#recibirVariable").val();
+    var observacion = $("#txtMotivoM").val();
+    var usuario = $("#recibirVariable").val();
 
+    swal({title: "Esta seguro?",
+        text: "Desea cambiar el estado de este recibo?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Si",
+        cancelButtonText: "No",
+        closeOnConfirm: false,
+        closeOnCancel: false},
+    function (isConfirm) {
+        if (isConfirm) {
+            var dataParams = {'idRecibo': id, 'estado': estado, 'observacion': observacion, 'usuario': usuario};
+            $.ajax({
+                type: "POST",
+                url: "http://refinal.frienderco.com/php/set/setUdpRec.php",
+                data: dataParams,
+                dataType: 'json',
+                cache: true,
+                success: function (jsonResp, html) {
 
+                    if (jsonResp.RESPONSE) {
+                        //descargarArchivo(generarTexto(jsonResp.DATA), 'archivo.txt');
+                        $('#dialogUpdRecibo').modal('hide');
+                        $('#dialogUpdReciboMotivo').modal('hide');
+                        getAllRecibos();
+                        swal("Muy Bien!", "El proceso ha sido correcto!", "success")
 
+                    } else {
+                        swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
+                    }
 
-    var l = confirm("Desea Anular este recibo?");
-    if (l === true) {
-
-        var dataParams = {'idRecibo': id, 'estado': estado, 'observacion': observacion, 'usuario': usuario};
-        $.ajax({
-            type: "POST",
-            url: "http://refinal.frienderco.com/php/set/setUdpRec.php",
-            data: dataParams,
-            dataType: 'json',
-            cache: true,
-            success: function (jsonResp, html) {
-
-                if (jsonResp.RESPONSE) {
-                    //descargarArchivo(generarTexto(jsonResp.DATA), 'archivo.txt');
-                    $('#dialogUpdRecibo').modal('hide');
-                    $('#dialogUpdReciboMotivo').modal('hide');
-                    getAllRecibos();
-
-                } else {
-                    alert("Ocurrio Un error:" + jsonResp.MESSAGE);
                 }
+                ,
+                error: function (jsonResp) {
+                    swal("Mensaje!", "Ocurrio Un error Diferente");
+                }
+            });
+        } else {
+            $('#dialogUpdRecibo').modal('hide');
+            $('#dialogUpdReciboMotivo').modal('hide');
+            swal("Cancelado", "Ha cancelado el proceso", "error");
 
-            }
-            ,
-            error: function (jsonResp) {
-                alert("Ocurrio Un error Diferente");
-            }
-        });
-    } else {
+        }
+    });
 
-        $('#dialogUpdRecibo').modal('hide');
-        $('#dialogUpdReciboMotivo').modal('hide');
-    }
+
+//    var l = confirm("Desea Anular este recibo?");
+//    if (l === true) {
+//
+//        var dataParams = {'idRecibo': id, 'estado': estado, 'observacion': observacion, 'usuario': usuario};
+//        $.ajax({
+//            type: "POST",
+//            url: "http://refinal.frienderco.com/php/set/setUdpRec.php",
+//            data: dataParams,
+//            dataType: 'json',
+//            cache: true,
+//            success: function (jsonResp, html) {
+//
+//                if (jsonResp.RESPONSE) {
+//                    //descargarArchivo(generarTexto(jsonResp.DATA), 'archivo.txt');
+//                    $('#dialogUpdRecibo').modal('hide');
+//                    $('#dialogUpdReciboMotivo').modal('hide');
+//                    getAllRecibos();
+//
+//                } else {
+//                    swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
+//                }
+//
+//            }
+//            ,
+//            error: function (jsonResp) {
+//                swal("Mensaje!", "Ocurrio Un error Diferente");
+//            }
+//        });
+//    } else {
+//
+//        $('#dialogUpdRecibo').modal('hide');
+//        $('#dialogUpdReciboMotivo').modal('hide');
+//    }
 
 
 

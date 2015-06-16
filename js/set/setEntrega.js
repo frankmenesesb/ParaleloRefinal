@@ -26,12 +26,12 @@ function entrega() {
 
     if (strLog === '') {
 
-        alert("No has ingresado el usuario :)..");
+        swal("Mensaje!", "No has ingresado el usuario :)..");
 
 
     } else if (strPlaca === '') {
 
-        alert("No has ingresado la placa :)..");
+        swal("Mensaje!", "No has ingresado la placa :)..");
         $("#txtPlaca").focus();
 
     } else
@@ -55,17 +55,17 @@ function entrega() {
                     if (jsonResp.MESSAGE === "") {
 
                     } else if (jsonResp.MESSAGE === "EMPTY") {
-                        alert("Error: no se pudo ejecutar la operacion de entrega!!");
+                        swal("Mensaje!", "Error: no se pudo ejecutar la operacion de entrega!!");
                     }
 
                 } else {
-                    alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                    swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
                 }
 
 
             },
             error: function (jsonResp) {
-                alert("Ocurrio Un error");
+                swal("Mensaje!", "Ocurrio Un error");
             }
         });
     }

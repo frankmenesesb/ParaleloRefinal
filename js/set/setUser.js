@@ -27,43 +27,43 @@ $(function () {
             
             if (strNom === '') {
 
-            alert("Ingresa tu nombre..");
+            swal("Mensaje!", "Ingresa tu nombre..");
             $("#txtNombre").focus();
 
         } else if (strApe === '') {
 
-            alert("No has ingresado tu apellido :)..");
+            swal("Mensaje!", "No has ingresado tu apellido :)..");
             $("#txtApellido").focus();
 
         } else if (strIde === '') {
 
-            alert("No has ingresado tu Identificacion :)..");
+            swal("Mensaje!", "No has ingresado tu Identificacion :)..");
             $("#txtIdentificacion").focus();
 
         } else if (strTipo === 'T') {
 
-            alert("No has seleccioando un tipo de usuario :)..");
+            swal("Mensaje!", "No has seleccioando un tipo de usuario :)..");
             $("#txtTipo").focus();
 
         } else if (strLog === '') {
 
-            alert("No has ingresado el usuario :)..");
+            swal("Mensaje!", "No has ingresado el usuario :)..");
             $("#txtUsuario").focus();
 
         } else if (strPass === '') {
 
-            alert("No has ingresado Contraseña :)..");
+            swal("Mensaje!", "No has ingresado Contraseña :)..");
             $("#txtContrasena").focus();
 
         } else if (strEma === '') {
 
-            alert("No has ingresado un email :)..");
+            swal("Mensaje!", "No has ingresado un email :)..");
             $("#txtEmail").focus();
 
         }
         else if (strPass !== strPass2) {
 
-            alert("las contraseñas no coinciden ingresalas de nuevo :)..");
+            swal("Mensaje!", "las contraseñas no coinciden ingresalas de nuevo :)..");
             $("#txtContrasena").focus();
             $("#txtContrasena").val('');
             $("#txtContrasena2").val('');
@@ -106,19 +106,19 @@ $(function () {
 
                         if (jsonResp.MESSAGE === "") {
 
-                            alert('XD');
+                            swal('Mensaje!', 'XD');
 
                         } else if (jsonResp.MESSAGE === "EMPTY") {
-                            alert("No se encontraron datos");
+                            swal("Mensaje!", "No se encontraron datos");
                         }
                     } else {
-                        alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                        swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
                     }
 
                 }
                 ,
                 error: function (jsonResp) {
-                    alert("Ocurrio Un error Diferente");
+                    swal("Mensaje!", "Ocurrio Un error Diferente");
                 }
             });
         }
@@ -128,43 +128,43 @@ $(function () {
             
             if (strNom === '') {
 
-            alert("Ingresa tu nombre..");
+            swal("Mensaje!", "Ingresa tu nombre..");
             $("#txtNombre").focus();
 
         } else if (strApe === '') {
 
-            alert("No has ingresado tu apellido :)..");
+            swal("Mensaje!", "No has ingresado tu apellido :)..");
             $("#txtApellido").focus();
 
         } else if (strIde === '') {
 
-            alert("No has ingresado tu Identificacion :)..");
+            swal("Mensaje!", "No has ingresado tu Identificacion :)..");
             $("#txtIdentificacion").focus();
 
         } else if (strTipo === 'T') {
 
-            alert("No has seleccioando un tipo de usuario :)..");
+            swal("Mensaje!", "No has seleccioando un tipo de usuario :)..");
             $("#txtTipo").focus();
 
         } else if (strLog === '') {
 
-            alert("No has ingresado el usuario :)..");
+            swal("Mensaje!", "No has ingresado el usuario :)..");
             $("#txtUsuario").focus();
 
         } else if (strPass === '') {
 
-            alert("No has ingresado Contraseña :)..");
+            swal("Mensaje!", "No has ingresado Contraseña :)..");
             $("#txtContrasena").focus();
 
         } else if (strEma === '') {
 
-            alert("No has ingresado un email :)..");
+            swal("Mensaje!", "No has ingresado un email :)..");
             $("#txtEmail").focus();
 
         }
         else if (strPass !== strPass2) {
 
-            alert("las contraseñas no coinciden ingresalas de nuevo :)..");
+            swal("Mensaje!", "las contraseñas no coinciden ingresalas de nuevo :)..");
             $("#txtContrasena").focus();
             $("#txtContrasena").val('');
             $("#txtContrasena2").val('');
@@ -207,19 +207,19 @@ $(function () {
 
                         if (jsonResp.MESSAGE === "") {
 
-                            alert('XD');
+                            swal('Mensaje!', 'XD');
 
                         } else if (jsonResp.MESSAGE === "EMPTY") {
-                            alert("No se encontraron datos");
+                            swal("Mensaje!", "No se encontraron datos");
                         }
                     } else {
-                        alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                        swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
                     }
 
                 }
                 ,
                 error: function (jsonResp) {
-                    alert("Ocurrio Un error Diferente");
+                    swal("Mensaje!", "Ocurrio Un error Diferente");
                 }
             });
         }

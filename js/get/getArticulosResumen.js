@@ -12,7 +12,7 @@ var fecha_entrega;
 
 function impresion_entrega() {
 
-    //alert('entro impresion entrega');
+    //swal('Mensaje!', 'entro impresion entrega');
     var placa = $("#txtPlaca").val();
     var recibiendoVariable = location.search.slice(location.search.indexOf("=") + 1, location.search.indexOf("$"));
     $("#recibirVariable").val(recibiendoVariable);
@@ -33,7 +33,7 @@ function resumen() {
     des_e = [];
     can_e = [];
     cargar();
-    //alert('entre');
+    //swal('Mensaje!', 'entre');
     $("#recibo").html('<tr><td>No tienes nada acumulado</td></tr>');
     //$(".find_button").click(function () {
     var recibiendoVariable = location.search.slice(location.search.indexOf("=") + 1, location.search.indexOf("$"));
@@ -71,7 +71,7 @@ function resumen() {
 
                 if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                    alert('Error no hay articulos!!');
+                    swal('Mensaje!', 'Error no hay articulos!!');
                 }
                 if (jsonResp.MESSAGE === "") {
 
@@ -95,7 +95,7 @@ function resumen() {
                         var log = "";
                         if ((descripcion === null || descripcion === "") || (can === null || can === "")) {
 
-                            //alert("Error: articulos con errores o sin existencia ");
+                            //swal("Mensaje!", "Error: articulos con errores o sin existencia ");
 
                         } else {
 
@@ -131,16 +131,16 @@ function resumen() {
                     //$("#txtHint").html(encabezado+html+final);
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    //alert("Error: no se encontro datos de articulos!!");
+                    //swal("Mensaje!", "Error: no se encontro datos de articulos!!");
                 }
             } else {
-                //alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                //swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
             $("#dialogProgress").modal('hide');
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
     });
 
@@ -289,7 +289,7 @@ function imprimir_entrega(str, usu) {
                 
                 $("#dialogProgress").modal('hide');
                 if(fail!==null || fail!==""){
-                    alert("Error conexion por favor reinicie la impresora, y reinicie el bluethooth de su celular");
+                    swal("Mensaje!", "Error conexion por favor reinicie la impresora, y reinicie el bluethooth de su celular");
                 }
         //alert(fail);
     });

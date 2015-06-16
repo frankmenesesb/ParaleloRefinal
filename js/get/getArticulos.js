@@ -44,7 +44,7 @@ function buscar_art() {
 
                     if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                        alert('Error no hay articulos!!');
+                        swal('Mensaje!', 'Error no hay articulos!!');
                     }
                     if (jsonResp.MESSAGE === "") {
 
@@ -59,21 +59,21 @@ function buscar_art() {
                             var log = "";
                             if ((descripcion === null || descripcion === "") || (id === null || id === "")) {
 
-                                alert("Error: articulos con errores o sin existencia ");
+                                swal("Mensaje!", "Error: articulos con errores o sin existencia ");
 
                             } else {
 
                                 html += '<tr style="width: 100%;">';
-                                html += '<td style="width: 5%;">';
-                                html += '<img src="../images/' + imagen + '" alt="">';
-                                html += '</td>';
                                 html += '<td style="width: 3%;">';
+                                html += '<img src="../images/' + imagen + '" alt="" style="width: 32px; height: 32px;">';
+                                html += '</td>';
+                                html += '<td style="width: 3%; font-size: 9px;">';
                                 html += '' + descripcion + '';
                                 html += '</td>';
-                                html += '<td style="width: 80%;">';
+                                html += '<td style="width: 85%;">';
                                 html += "<input style=\"width: 100%;\" size=\"70\" type=\"number\" class=\"form-control\" id=\"" + id + "\" placeholder=\"0 Kg.\" onclick=\"ir('" + id + "');\"/>";
                                 html += '</td>';
-                                html += '<td style="width: 5%;">';
+                                html += '<td style="width: 3%;">';
                                 html += '<label style="font-size:10px;">Kg.</label>';
                                 html += '</td>';
                                 html += '</tr>';
@@ -89,21 +89,21 @@ function buscar_art() {
 
 
                     } else if (jsonResp.MESSAGE === "EMPTY") {
-                        alert("El proveedor no tiene Articulos asignados por favor informar en oficina.");
+                        swal("Mensaje!", "El proveedor no tiene Articulos asignados por favor informar en oficina.");
                         $("#recibo").html('');
                     }
                     
                     $("#dialogProgress").modal('hide');
                 } else {
                     $("#dialogProgress").modal('hide');
-                    alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                    swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
                     
                 }
 
 
             },
             error: function (jsonResp) {
-                alert("Ocurrio Un error");
+                swal("Mensaje!", "Ocurrio Un error");
             }
         });
     }

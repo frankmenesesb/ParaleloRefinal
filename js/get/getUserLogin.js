@@ -30,12 +30,12 @@ $(function () {
 
         if (strLog === '') {
 
-            alert("No has ingresado el usuario :)..");
+            swal("Mensaje!", "No has ingresado el usuario :)..");
             $("#txtUsuario").focus();
 
         } else if (strPass === '') {
 
-            alert("No has ingresado la contraseña :)..");
+            swal("Mensaje!", "No has ingresado la contraseña :)..");
             $("#txtContrasena").focus();
 
         } else
@@ -52,7 +52,7 @@ $(function () {
 
                         if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                            alert('Error Usuario no registrado!!');
+                            swal('Mensaje!', 'Error Usuario no registrado!!');
                         }
                         if (jsonResp.MESSAGE === "") {
 
@@ -80,7 +80,7 @@ $(function () {
                                 log = "";
                                 if ((nombre === null || nombre === "") || (id === null || id === "")) {
 
-                                    alert("Error: usuario o contraseña invalidos ");
+                                    swal("Mensaje!", "Error: usuario o contraseña invalidos ");
 
                                 } else {
                                     
@@ -101,16 +101,17 @@ $(function () {
                             //$("#txtHint").html(encabezado+html+final);
 
                         } else if (jsonResp.MESSAGE === "EMPTY") {
-                            alert("Error: no se encontro datos de registro del usuario!!");
+                            swal("Mensaje!", "Error: no se encontro datos de registro del usuario!!");
+                            $("#dialogProgress").modal('hide');
                         }
                     } else {
-                        alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                        swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
                     }
 
 
                 },
                 error: function (jsonResp) {
-                    alert("Ocurrio Un error");
+                    swal("Mensaje!", "Ocurrio Un error");
                 }
             });
         }

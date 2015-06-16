@@ -42,7 +42,7 @@ function uReciboEncDiv(csc) {
 
                 if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                    alert('No hay recibos para este usuario!!');
+                    swal('Mensaje!', 'No hay recibos para este usuario!!');
                 }
                 if (jsonResp.MESSAGE === "") {
 
@@ -70,7 +70,7 @@ function uReciboEncDiv(csc) {
                         var log = "";
                         if ((id_rec_enc === null || id_rec_enc === "") || (id_usuario === null || id_usuario === "")) {
 
-                            alert("Error al traer recibo");
+                            swal("Mensaje!", "Error al traer recibo");
 
                         } else {
 
@@ -94,17 +94,17 @@ function uReciboEncDiv(csc) {
                     //$("#txtHint").html(encabezado+html+final);
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: Recibo no existe!!");
+                    swal("Mensaje!", "Error: Recibo no existe!!");
                 }
                  $("#dialogProgress").modal('hide');
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
     });
 
@@ -179,7 +179,7 @@ function buscar_recibo(csc) {
 
                 if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                    alert('Error no hay articulos!!');
+                    swal('Mensaje!', 'Error no hay articulos!!');
                 }
                 if (jsonResp.MESSAGE === "") {
 
@@ -199,7 +199,7 @@ function buscar_recibo(csc) {
                         var log = "";
                         if ((descripcion === null || descripcion === "") || (cantidad === null || cantidad === "")) {
 
-                            alert("Error: articulos con errores o sin existencia ");
+                            swal("Mensaje!", "Error: articulos con errores o sin existencia ");
 
                         } else {
 
@@ -227,16 +227,16 @@ function buscar_recibo(csc) {
                     //$("#txtHint").html(encabezado+html+final);
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: no se encontro datos de articulos!!");
+                    swal("Mensaje!", "Error: no se encontro datos de articulos!!");
                 }
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
             }
 
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
     });
 }

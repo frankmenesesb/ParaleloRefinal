@@ -28,7 +28,7 @@ $(function () {
 
                 if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                    alert('Error no hay articulos!!');
+                    swal('Mensaje!', 'Error no hay articulos!!');
                 }
                 if (jsonResp.MESSAGE === "") {
 
@@ -45,18 +45,18 @@ $(function () {
 
 
                 } else if (jsonResp.MESSAGE === "EMPTY") {
-                    alert("Error: no se encontro datos de articulos!!");
+                    swal("Mensaje!", "Error: no se encontro datos de articulos!!");
                 }
                 $("#dialogProgress").modal('hide');
             } else {
-                alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
                 $("#dialogProgress").modal('hide');
             }
 
 
         },
         error: function (jsonResp) {
-            alert("Ocurrio Un error");
+            swal("Mensaje!", "Ocurrio Un error");
         }
     });
 });
@@ -95,7 +95,7 @@ function buscar_proveedor() {
 
                     if (jsonResp.MESSAGE === "undefined" || jsonResp.MESSAGE === undefined) {
 
-                        alert('Error no hay articulos!!');
+                        swal('Mensaje!', 'Error no hay articulos!!');
                     }
                     if (jsonResp.MESSAGE === "") {
 
@@ -107,7 +107,7 @@ function buscar_proveedor() {
                             var log = "";
                             if ((descripcion === null || descripcion === "") || (id === null || id === "")) {
 
-                                alert("Error: articulos con errores o sin existencia ");
+                                swal("Mensaje!", "Error: articulos con errores o sin existencia ");
 
                             } else {
 
@@ -129,19 +129,19 @@ function buscar_proveedor() {
                         //$("#txtHint").html(encabezado+html+final);
 
                     } else if (jsonResp.MESSAGE === "EMPTY") {
-                        alert("Error: no se encontro proveedores en esta plaza!!");
+                        swal("Mensaje!", "Error: no se encontro proveedores en esta plaza!!");
                     }
                     
                     $("#dialogProgress").modal('hide');
                 } else {
-                    alert("Ocurrio Un error:" + jsonResp.MESSAGE);
+                    swal("Mensaje!", "Ocurrio Un error:" + jsonResp.MESSAGE);
                     $("#dialogProgress").modal('hide');
                 }
 
 
             },
             error: function (jsonResp) {
-                alert("Ocurrio Un error");
+                swal("Mensaje!", "Ocurrio Un error");
             }
         });
 
