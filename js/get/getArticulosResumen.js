@@ -152,7 +152,7 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
     var cantidad_usu = cod_usu.length;
     var fecha = "";
     var cantidad_fecha = "";
-    var salto = "                                ";
+    var salto="                                                ";
     var t1 = "";
     var t2 = "";
     var cantidad = "";
@@ -266,7 +266,7 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
 
     fin_mensaje = encabezado + fin_mensaje + espacio_final + espacio_final + espacio_final + espacio_final;
 
-    alert(fin_mensaje);
+    //alert(fin_mensaje);
     imprimir_entrega(fin_mensaje, usu);
 
 
