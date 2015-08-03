@@ -189,21 +189,21 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
     cantidad_nom_u = nombre_u.length;
     cantidad_nom_p = nombre_p.length;
 
-    while (cantidad_placa < 32) {
+    while (cantidad_placa < 47) {
 
         n_placa = n_placa + " ";
 
         cantidad_placa = parseInt(cantidad_placa) + 1;
     }
 
-    while (cantidad_nom_p < 32) {
+    while (cantidad_nom_p < 47) {
 
         nombre_p = nombre_p + " ";
 
         cantidad_nom_p = parseInt(cantidad_nom_p) + 1;
     }
 
-    while (cantidad_nom_u < 32) {
+    while (cantidad_nom_u < 47) {
 
         nombre_u = nombre_u + " ";
 
@@ -211,7 +211,7 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
     }
 
 
-    while (cantidad_usu < 32) {
+    while (cantidad_usu < 47) {
 
         cod_usu = cod_usu + " ";
 
@@ -219,7 +219,7 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
     }
 
 
-    while (cantidad_fecha < 32) {
+    while (cantidad_fecha < 47) {
 
         fecha = fecha + " ";
 
@@ -248,7 +248,7 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
         t2 = t2.toString();
         cantidad = t1.length + t2.length;
 
-        while (cantidad < 32 - (inicio.length + fin.length)) {
+        while (cantidad < 47 - (inicio.length + fin.length)) {
 
             espacio = espacio + " ";
             cantidad = parseInt(cantidad) + 1;
