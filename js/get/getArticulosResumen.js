@@ -62,7 +62,7 @@ function resumen() {
         type: 'POST',
         data: dataString,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getArticulosResumen.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getArticulosResumen.php",
         //url: "../php/get/getArticulos.php",
         success: function (jsonResp) {
 

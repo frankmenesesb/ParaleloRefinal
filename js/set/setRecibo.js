@@ -50,7 +50,7 @@ $(function () {
 //esta es una prueba
             $.ajax({
                 type: "POST",
-                url: "http://refinal.frienderco.com/php/set/setReciboEnc.php",
+                url: "http://refinalapp.fluxusmedia.co/php/set/setReciboEnc.php",
                 //url: "../php/set/setReciboEnc.php",
                 data: dataString,
                 dataType: 'json',
@@ -143,7 +143,7 @@ function ultReciboEnc() {
         type: 'POST',
         data: dataString,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getUReciboEnc.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getUReciboEnc.php",
         //url: "../php/get/getArticulos.php",
         success: function (jsonResp) {
 

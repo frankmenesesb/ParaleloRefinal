@@ -40,7 +40,7 @@ function entrega() {
             type: 'POST',
             data: dataString,
             dataType: 'json',
-            url: "http://refinal.frienderco.com/php/set/setUdpRecEnt.php",
+            url: "http://refinalapp.fluxusmedia.co/php/set/setUdpRecEnt.php",
             success: function (jsonResp) {
 
                 if (jsonResp.RESPONSE) {

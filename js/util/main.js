@@ -156,7 +156,7 @@ function cargar() {
 function conecctionStatus() {
     $.ajax({
         type: "POST",
-        url: "http://refinal.frienderco.com/php/get/conecctionStatus.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/conecctionStatus.php",
         data: "NULL",
         dataType: 'json',
         cache: true,

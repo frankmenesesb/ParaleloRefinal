@@ -37,7 +37,7 @@ function uReciboEnc() {
         type: 'POST',
         data: dataString,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getUReciboEnc.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getUReciboEnc.php",
         //url: "../php/get/getArticulos.php",
         success: function (jsonResp) {
 
@@ -131,7 +131,7 @@ cargar();
         type: 'POST',
         data: dataString,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getReciboEncPorCsc.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getReciboEncPorCsc.php",
         //url: "../php/get/getArticulos.php",
         success: function (jsonResp) {
 
@@ -233,7 +233,7 @@ function uReciboDet(strRec, usu) {
         type: 'POST',
         data: dataString,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getReciboGenerado.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getReciboGenerado.php",
         //url: "../php/get/getArticulos.php",
         success: function (jsonResp) {
 

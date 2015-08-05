@@ -19,7 +19,7 @@ $(function () {
         type: 'POST',
         data: dataParams,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getPlazas.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getPlazas.php",
         //url: "../php/get/getArticulos.php",
         success: function (jsonResp) {
 
@@ -86,7 +86,7 @@ function buscar_proveedor() {
             type: 'POST',
             data: dataString,
             dataType: 'json',
-            url: "http://refinal.frienderco.com/php/get/getProveedorXPlaza.php",
+            url: "http://refinalapp.fluxusmedia.co/php/get/getProveedorXPlaza.php",
             //url: "../php/get/getArticulos.php",
             success: function (jsonResp) {
 

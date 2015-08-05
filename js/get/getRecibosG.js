@@ -109,7 +109,7 @@ function getAllRecibos() {
         type: 'POST',
         data: dataParams,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getRecibosEncXUsuario.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getRecibosEncXUsuario.php",
         //url: "../php/get/getUser.php",
 
         success: function (jsonResp) {
@@ -210,7 +210,7 @@ function getRecibo(jsonParams) {
         type: 'POST',
         data: dataParams,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getReciboDet.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getReciboDet.php",
         //url: "../php/get/getUser.php",
         success: function (jsonResp) {
 
@@ -414,7 +414,7 @@ function setUpdRecPen(arrayPendientes) {
 
     $.ajax({
         type: "POST",
-        url: "http://refinal.frienderco.com/php/set/setUpdRecPen.php",
+        url: "http://refinalapp.fluxusmedia.co/php/set/setUpdRecPen.php",
         //url: "../php/set/setReciboEnc.php",
         data: dataParams,
         dataType: 'json',
@@ -444,7 +444,7 @@ function generarArchivoPlano(arrayRecibos) {
 
     $.ajax({
         type: "POST",
-        url: "http://refinal.frienderco.com/php/get/getRecArchivoPlano.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getRecArchivoPlano.php",
         data: dataParams,
         dataType: 'json',
         cache: true,
@@ -564,7 +564,7 @@ function motivo() {
             var dataParams = {'idRecibo': id, 'estado': estado, 'observacion': observacion, 'usuario': usuario};
             $.ajax({
                 type: "POST",
-                url: "http://refinal.frienderco.com/php/set/setUdpRec.php",
+                url: "http://refinalapp.fluxusmedia.co/php/set/setUdpRec.php",
                 data: dataParams,
                 dataType: 'json',
                 cache: true,
@@ -602,7 +602,7 @@ function motivo() {
 //        var dataParams = {'idRecibo': id, 'estado': estado, 'observacion': observacion, 'usuario': usuario};
 //        $.ajax({
 //            type: "POST",
-//            url: "http://refinal.frienderco.com/php/set/setUdpRec.php",
+//            url: "http://refinalapp.fluxusmedia.co/php/set/setUdpRec.php",
 //            data: dataParams,
 //            dataType: 'json',
 //            cache: true,

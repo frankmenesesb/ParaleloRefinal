@@ -33,7 +33,7 @@ function uReciboEncDiv(csc) {
         type: 'POST',
         data: dataString,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getReciboEncPorCsc.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getReciboEncPorCsc.php",
         //url: "../php/get/getArticulos.php",
         success: function (jsonResp) {
 
@@ -170,7 +170,7 @@ function buscar_recibo(csc) {
         type: 'POST',
         data: dataString,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getReciboGenerado.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getReciboGenerado.php",
         //url: "../php/get/getArticulos.php",
         success: function (jsonResp) {
 

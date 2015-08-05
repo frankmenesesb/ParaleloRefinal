@@ -97,7 +97,7 @@ function getAllRecibos() {
         type: 'POST',
         data: dataParams,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getRecibosEnc.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getRecibosEnc.php",
         //url: "../php/get/getUser.php",
         success: function (jsonResp) {
 
@@ -216,7 +216,7 @@ function getRecibo(jsonParams) {
         type: 'POST',
         data: dataParams,
         dataType: 'json',
-        url: "http://refinal.frienderco.com/php/get/getReciboDet.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getReciboDet.php",
         //url: "../php/get/getUser.php",
         success: function (jsonResp) {
 
@@ -420,7 +420,7 @@ function setUpdRecPen(arrayPendientes) {
 
     $.ajax({
         type: "POST",
-        url: "http://refinal.frienderco.com/php/set/setUpdRecPen.php",
+        url: "http://refinalapp.fluxusmedia.co/php/set/setUpdRecPen.php",
         //url: "../php/set/setReciboEnc.php",
         data: dataParams,
         dataType: 'json',
@@ -450,7 +450,7 @@ function generarArchivoPlano(arrayRecibos) {
 
     $.ajax({
         type: "POST",
-        url: "http://refinal.frienderco.com/php/get/getRecArchivoPlano.php",
+        url: "http://refinalapp.fluxusmedia.co/php/get/getRecArchivoPlano.php",
         data: dataParams,
         dataType: 'json',
         cache: true,
@@ -533,7 +533,7 @@ function updRecibo(jsonParams) {
 
         $.ajax({
             type: "POST",
-            url: "http://refinal.frienderco.com/php/set/setUdpRec.php",
+            url: "http://refinalapp.fluxusmedia.co/php/set/setUdpRec.php",
             data: dataParams,
             dataType: 'json',
             cache: true,
