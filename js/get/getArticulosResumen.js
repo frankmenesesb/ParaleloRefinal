@@ -152,17 +152,17 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
     var cantidad_usu = cod_usu.length;
     var fecha = "";
     var cantidad_fecha = "";
-    var salto="                                                   ";
+    var salto="                                                ";
     var t1 = "";
     var t2 = "";
     var cantidad = "";
-    var emp_ini = " ";
-    var emp_fin = " ";
+    var emp_ini = "";
+    var emp_fin = "";
     var empresa = "REFINAL";
     var encabezado = "";
     var cantidad_emp = "";
-    var inicio = " ";
-    var fin = " ";
+    var inicio = "";
+    var fin = "";
     var espacio = "";
     var mensaje = "";
     var fin_mensaje = "";
@@ -189,21 +189,21 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
     cantidad_nom_u = nombre_u.length;
     cantidad_nom_p = nombre_p.length;
 
-    while (cantidad_placa < 51) {
+    while (cantidad_placa < 48) {
 
         n_placa = n_placa + " ";
 
         cantidad_placa = parseInt(cantidad_placa) + 1;
     }
 
-    while (cantidad_nom_p < 51) {
+    while (cantidad_nom_p < 48) {
 
         nombre_p = nombre_p + " ";
 
         cantidad_nom_p = parseInt(cantidad_nom_p) + 1;
     }
 
-    while (cantidad_nom_u < 51) {
+    while (cantidad_nom_u < 48) {
 
         nombre_u = nombre_u + " ";
 
@@ -211,7 +211,7 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
     }
 
 
-    while (cantidad_usu < 51) {
+    while (cantidad_usu < 48) {
 
         cod_usu = cod_usu + " ";
 
@@ -219,7 +219,7 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
     }
 
 
-    while (cantidad_fecha < 51) {
+    while (cantidad_fecha < 48) {
 
         fecha = fecha + " ";
 
@@ -228,19 +228,16 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
 
 
 
-
-
-    while (cantidad_emp < 26) {
+    
+    while (cantidad_emp< 25) {
 
         emp_ini = emp_ini + " ";
 
         cantidad_emp = parseInt(cantidad_emp) + 1;
     }
 
-    encabezado = emp_ini + empresa + emp_ini + " " + salto + salto + fecha + salto + salto + n_placa + salto + cod_usu + nombre_u + nombre_p + salto + salto;
-
-
-
+    encabezado = "    "+emp_ini + empresa + emp_ini +" "+ salto + salto + fecha + salto + salto + n_placa + salto + cod_usu + nombre_u + nombre_p + salto + salto;
+   
     for (i = 0; i < des_e.length; i++) {
         t1 = des_e[i];
         t1 = t1.toString();
@@ -248,7 +245,7 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
         t2 = t2.toString();
         cantidad = t1.length + t2.length;
 
-        while (cantidad < 51 - (inicio.length + fin.length)) {
+        while (cantidad < 48 - (inicio.length + fin.length)) {
 
             espacio = espacio + " ";
             cantidad = parseInt(cantidad) + 1;
@@ -267,7 +264,9 @@ function formatoEntrega(fechaP, usu, nom_usuario, nom_plaza, placa) {
     fin_mensaje = encabezado + fin_mensaje + espacio_final + espacio_final + espacio_final + espacio_final;
 
     //alert(fin_mensaje);
+    //var prueba="123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789";
     imprimir_entrega(fin_mensaje, usu);
+    
 
 
 
