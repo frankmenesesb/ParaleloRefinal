@@ -312,7 +312,7 @@ function formato(fechaP, proveedorP, nitP, usu, recibo, nom_usuario,nom_plaza) {
     var fecha = "";
     var cantidad_fecha = "";
     //var salto = "                                ";
-    var salto="                                               ";
+    var salto="                                ";
     var t1 = "";
     var t2 = "";
     var cantidad = "";
@@ -347,14 +347,14 @@ function formato(fechaP, proveedorP, nitP, usu, recibo, nom_usuario,nom_plaza) {
     cantidad_nom_u=nombre_u.length;
     cantidad_nom_p=nombre_p.length;
     
-    while (cantidad_nom_p < 48) {
+    while (cantidad_nom_p < 32) {
 
         nombre_p = nombre_p + " ";
 
         cantidad_nom_p = parseInt(cantidad_nom_p) + 1;
     }
     
-    while (cantidad_nom_u < 48) {
+    while (cantidad_nom_u < 32) {
 
         nombre_u = nombre_u + " ";
 
@@ -362,34 +362,34 @@ function formato(fechaP, proveedorP, nitP, usu, recibo, nom_usuario,nom_plaza) {
     }
     
     
-    while (cantidad_usu < 48) {
+    while (cantidad_usu < 32) {
 
         cod_usu = cod_usu + " ";
 
         cantidad_usu = parseInt(cantidad_usu) + 1;
     }
-    while (cantidad_rec < 48) {
+    while (cantidad_rec < 32) {
 
         csc_rec = csc_rec + " ";
 
         cantidad_rec = parseInt(cantidad_rec) + 1;
     }
 
-    while (cantidad_fecha < 48) {
+    while (cantidad_fecha < 32) {
 
         fecha = fecha + " ";
 
         cantidad_fecha = parseInt(cantidad_fecha) + 1;
     }
 
-    while (cantidad_proveedor < 48) {
+    while (cantidad_proveedor < 32) {
 
         proveedor = proveedor + " ";
 
         cantidad_proveedor = parseInt(cantidad_proveedor) + 1;
     }
 
-    while (cantidad_nit < 48) {
+    while (cantidad_nit < 32) {
 
         nit = nit + " ";
 
@@ -397,14 +397,14 @@ function formato(fechaP, proveedorP, nitP, usu, recibo, nom_usuario,nom_plaza) {
     }
 
    
-    while (cantidad_emp< 26) {
+    while (cantidad_emp< 18) {
 
         emp_ini = emp_ini + " ";
 
         cantidad_emp = parseInt(cantidad_emp) + 1;
     }
 
-    encabezado = emp_ini + empresa + emp_ini +" "+ salto + salto + fecha + salto + nit + proveedor + salto + salto + csc_rec +cod_usu+nombre_u+nombre_p+ salto + salto;
+    encabezado = "  "+emp_ini + empresa + emp_ini +" "+ salto + salto + fecha + salto + nit + proveedor + salto + salto + csc_rec +cod_usu+nombre_u+nombre_p+ salto + salto;
 
     //encabezado = salto + salto + fecha + salto + nit + proveedor + salto + salto + csc_rec +cod_usu+nombre_u+nombre_p+ salto + salto;
 
@@ -417,7 +417,7 @@ function formato(fechaP, proveedorP, nitP, usu, recibo, nom_usuario,nom_plaza) {
         t2 = t2.toString();
         cantidad = t1.length + t2.length;
 
-        while (cantidad < 48 - (inicio.length + fin.length)) {
+        while (cantidad < 32 - (inicio.length + fin.length)) {
 
             espacio = espacio + " ";
             cantidad = parseInt(cantidad) + 1;
