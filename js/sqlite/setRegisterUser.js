@@ -47,6 +47,7 @@ function registrarUsuario(id_usuarioP, nombreP, apellidoP, telefonoP, emailP, us
 //que se llama function crearDato
 
 function registerUserDB(tx) {
+    alert(id_usuario+ nombre+apellido+telefono+email+usuario+password+tipo+identificacion);
     //tx.executeSql('DROP TABLE IF EXISTS USUARIO');
     /*tx.executeSql('INSERT INTO USUARIO (id_usuario, nombre, apellido, telefono, email, usuario, password, tipo, identificacion) '+
                   +'VALUES('+id_usuario+',"'+nombre+'","'+apellido+'",'+telefono+',"'+email+'","'+usuario+'","'+password+'","'+tipo+'",'+identificacion+')');*/
@@ -66,3 +67,6 @@ function errorCB(err) {
 function successCB(err) {
     alert("Exitoso" + err);
 }
+
+
+

@@ -10,7 +10,7 @@ var db = window.openDatabase("Database", "1.0", "Database Sqlite", 200000);
 
 function init() {
     document.addEventListener("deviceready", onDeviceReady, true);
-    
+
 }
 
 //esta es la que manda a interactuar con la base de datos
@@ -19,11 +19,11 @@ function init() {
 //el error y la succescb que es lo que debe hacer si funciona correctamente 
 //el populate
 function onDeviceReady() {
-    
+
     db.transaction(populateDB, errorCB, successCB);
     //db.transaction(queryDB, errorCB);
-    
-    
+
+
 }
 
 //Populate the database
@@ -35,12 +35,12 @@ function onDeviceReady() {
 //que se llama function crearDato
 
 function populateDB(tx) {
-    tx.executeSql('DROP TABLE IF EXISTS USUARIO');
+    //tx.executeSql('DROP TABLE IF EXISTS USUARIO');
     tx.executeSql('CREATE TABLE IF NOT EXISTS USUARIO (id_usuario unique, nombre, apellido, telefono, email, usuario, password, tipo, identificacion)');
     /*
-    tx.executeSql('INSERT INTO USUARIO (id_usuario, nombre, apellido, telefono, email, usuario, password, tipo, identificacion) ' +
-            +'SELECT 9999, "Administrador","Administrador",3166234391,"frankmeneses10@gmail.com","admin","apolo11mb","A",1151937845 '+
-            'WHERE NOT EXISTS(SELECT 1 FROM USUARIO WHERE id_usuario = 9999)');*/
+     tx.executeSql('INSERT INTO USUARIO (id_usuario, nombre, apellido, telefono, email, usuario, password, tipo, identificacion) ' +
+     +'SELECT 9999, "Administrador","Administrador",3166234391,"frankmeneses10@gmail.com","admin","apolo11mb","A",1151937845 '+
+     'WHERE NOT EXISTS(SELECT 1 FROM USUARIO WHERE id_usuario = 9999)');*/
 }
 
 
@@ -54,8 +54,37 @@ function errorCB(err) {
 
 // Transaction successCB
 //
-function successCB(err) {
-    alert("success processing SQL: " + err);
+
+
+
+function errorCBDos(err) {
+    alert("Error processing SQL Dos: " + err);
+}
+
+// Transaction success callback
+//
+function successCB() {
+    $(document).ready(function () {
+
+        db.transaction(queryDB, errorCBDos);
+        function queryDB(trans) {
+            console.log("QUery DB");
+            trans.executeSql('SELECT * FROM USUARIO', [], querySuccess);
+        }
+
+        function querySuccess(trans, results) {
+            console.log("Results DB");
+            var len = results.rows.length;
+            var s = '';
+            var html = '';
+            for (var i = 0; i < len; i++) {
+                
+                
+                loginLocal(results.rows.item(i).usuario,results.rows.item(i).password);
+                }
+            
+        }
+    });
 }
 
 
